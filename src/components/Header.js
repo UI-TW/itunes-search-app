@@ -1,3 +1,4 @@
+import '../style/Header.css';
 import headerTemplate from './header.tpl.html';
 import emitter from '../emitter';
 
@@ -51,7 +52,7 @@ class Header {
 
   render(){
     const html = headerTemplate(this.state);
-    document.querySelector('.container #header').innerHTML = html;
+    document.querySelector('#container #header').innerHTML = html;
   }
 
   update = ({ keyCode, target: { value: query } }) => _ => {
