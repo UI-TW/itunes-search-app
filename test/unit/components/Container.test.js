@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Container from '../../../src/components/Container';
+import Container from '../../../src/components/container/Container';
 
 const mockData = {
   resultCount: 1,

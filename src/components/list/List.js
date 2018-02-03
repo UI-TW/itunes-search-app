@@ -1,6 +1,6 @@
-import '../style/List.css';
+import './List.css';
 import listTemplate from './list.tpl.html';
-import state from '../state';
+import state from '../../state';
 
 class List {
   constructor(){

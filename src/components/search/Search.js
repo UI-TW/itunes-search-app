@@ -1,6 +1,6 @@
-import '../style/Header.css';
-import headerTemplate from './header.tpl.html';
-import emitter from '../emitter';
+import searchTemplate from './search.tpl.html';
+import emitter from '../../emitter';
+import './Search.css';
 
 const options = [
   'All',
@@ -14,8 +14,8 @@ const options = [
   'Software'
 ];
 
-class Header {
-  constructor(){
+class Search {
+  constructor() {
     this.state = {
       media: 'All',
       query: '',
@@ -24,11 +24,11 @@ class Header {
     this.ticking = false;
     this.render();
     this.attachEventListeners();
-    
+
   }
 
-  attachEventListeners(){
-    const searchInput = document.querySelector('.header-search-wrapper input');
+  attachEventListeners() {
+    const searchInput = document.querySelector('.search-wrapper input');
     const searchOptionLink = document.querySelector('#search-options li a');
     searchInput.addEventListener('keyup', (e) => {
       if (!this.ticking) {
@@ -39,25 +39,24 @@ class Header {
 
     searchOptionLink.addEventListener('click', (e) => {
       this.media = e.target.textContent;
-      if(this.state.query.length > 0){
+      if (this.state.query.length > 0) {
         this.emitSearch();
       }
     });
-    
   }
 
   emitSearch() {
     emitter.emit('search', this.state);
   }
 
-  render(){
-    const html = headerTemplate(this.state);
-    document.querySelector('#container #header').innerHTML = html;
+  render() {
+    const html = searchTemplate(this.state);
+    document.querySelector('#container #search').innerHTML = html;
   }
 
-  update = ({ keyCode, target: { value: query } }) => _ => {
+  update = ({keyCode, target: {value: query}}) => _ => {
     this.state.query = query;
-    if(keyCode === 13) {
+    if (keyCode === 13) {
       this.emitSearch();
     }
     this.ticking = false;
@@ -65,4 +64,4 @@ class Header {
 
 }
 
-export default Header;
+export default Search;

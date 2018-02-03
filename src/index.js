@@ -4,7 +4,7 @@ import { AppContainer } from 'react-hot-loader';
 import React from 'react';
 import App from './components/App';
 import Handlebars from 'handlebars';
-import Header from './components/Header';
+import Header from './components/header/Header';
 
 Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
     return (arg1 == arg2) ? options.fn(this) : options.inverse(this);

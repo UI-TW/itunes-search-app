@@ -1,10 +1,13 @@
+.nav-wrapper {
+  align-items: center;
+}
+
 .dropdown-wrapper {
   text-align: center;
   position: relative;
   width: 100px;
   left: 60px;
   display: block;
-  padding: 0 10px;
 }
 
 .dropdown-wrapper:hover {
@@ -16,17 +19,19 @@
   justify-content: center;
 }
 
-.header-search-wrapper {
+.search-wrapper {
   position: relative;
   width: 30vw;
+  padding-top: 20px;
 }
 
-.header-search-wrapper i {
+.search-wrapper i {
   position: absolute;
   left: 12px;
+  top: 30px;
 }
 
-.header-search-wrapper input.search-input {
+.search-wrapper input.search-input {
   background: rgba(255, 255, 255, .3);
   border-radius: 3px;
   padding-left: 50px;
@@ -39,4 +44,9 @@
 ul li.select {
   font-weight: 600;
   background: #e0e0e0;
+}
+
+.dropdown-button.active + .dropdown-content {
+  opacity: 1;
+  display: block;
 }

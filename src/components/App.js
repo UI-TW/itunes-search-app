@@ -1,7 +1,8 @@
-import Header from './Header';
-import Container from './Container';
-import '../style/App.css';
-import containerTemplate from './container.tpl.html';
+import Header from './header/Header';
+import Search from './search/Search';
+import Container from './container/Container';
+import './App.css';
+import containerTemplate from './container/container.tpl.html';
 
 class App {
   constructor(){
@@ -11,6 +12,7 @@ class App {
     const appContainer = document.querySelector('#itunes-search');
     appContainer.innerHTML = containerTemplate();
     new Header();
+    new Search();
     new Container();
   }
 }

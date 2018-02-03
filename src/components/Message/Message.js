@@ -1,5 +1,5 @@
-import '../style/Message.css';
-import state from '../state';
+import './Message.css';
+import state from '../../state';
 import messageTemplate from './message.tpl.html';
 
 const msgMap = {
@@ -22,15 +22,15 @@ const msgMap = {
 
 
 class Message {
-  constructor(){
+  constructor() {
 
   }
 
-  render(){
+  render() {
     return messageTemplate({
-                    status: state.status,
-                    msgMap
-                  });    
+      status: state.status,
+      msgMap
+    });
   }
 }
 
