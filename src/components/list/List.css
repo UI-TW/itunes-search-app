@@ -1,7 +1,22 @@
 .list-wrapper {
-  padding: 10px 45px;
-  /* column width */
-  column-width: 300px;
-  /* space between columns */
-  column-gap: 2px;
+  display: grid;
+  grid-template-columns: repeat(2, 46vw);
+  grid-gap: 2% 4%;
+  padding: 20px 4%;
+  justify-content: center;
+  align-items: stretch;
+}
+
+@media only screen and (min-width: 640px) {
+  .list-wrapper {
+    grid-template-columns: repeat(3, 31vw);
+    grid-gap: 2%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .list-wrapper {
+    grid-template-columns: repeat(4, 22.5vw);
+    padding: 20px;
+  }
 }

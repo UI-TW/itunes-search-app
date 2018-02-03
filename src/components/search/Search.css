@@ -1,27 +1,22 @@
 .nav-wrapper {
   align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 0 15px;
 }
 
 .dropdown-wrapper {
+  min-width: 110px;
   text-align: center;
-  position: relative;
-  width: 100px;
-  left: 60px;
-  display: block;
 }
 
 .dropdown-wrapper:hover {
   background: #009688;
 }
 
-.nav-wrapper {
-  display: flex;
-  justify-content: center;
-}
-
 .search-wrapper {
   position: relative;
-  width: 30vw;
+  flex-grow: 1;
   padding-top: 20px;
 }
 
@@ -34,6 +29,7 @@
 .search-wrapper input.search-input {
   background: rgba(255, 255, 255, .3);
   border-radius: 3px;
+  box-sizing: border-box;
   padding-left: 50px;
 }
 
@@ -46,7 +42,19 @@ ul li.select {
   background: #e0e0e0;
 }
 
+.dropdown-button {
+  height: 3rem;
+  padding: 10px 6px;
+}
+
 .dropdown-button.active + .dropdown-content {
   opacity: 1;
   display: block;
+}
+
+@media only screen and (min-width: 640px) {
+  .search-wrapper {
+    width: 40vw;
+    flex-grow: initial;
+  }
 }
