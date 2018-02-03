@@ -1,7 +1,4 @@
-// @flow
-import type { HeaderState } from './type';
-
-export const kindColorMap: Object = {
+export const kindColorMap = {
   song: 'teal',
   'feature-movie': 'pink',
   ebook: 'blue',
@@ -11,9 +8,9 @@ export const kindColorMap: Object = {
   software: 'indigo'
 };
 
-export const capitalize = (str: string): string => (`${str[0].toUpperCase()}${str.slice(1).toLowerCase()}`);
+export const capitalize = (str) => (`${str[0].toUpperCase()}${str.slice(1).toLowerCase()}`);
 
-export function getMedia(str: string): string {
+export function getMedia(str) {
   if (str.indexOf(' ') === -1) {
     return str.toLowerCase();
   }
@@ -24,9 +21,9 @@ export function getMedia(str: string): string {
 export const getApiUrl = ({
   media,
   query
-}: HeaderState) => `https://dry-temple-99897.herokuapp.com/api/search?media=${getMedia(media || 'all')}&term=${query.split(' ').join('+')}`;
+}) => `https://dry-temple-99897.herokuapp.com/api/search?media=${getMedia(media || 'all')}&term=${query.split(' ').join('+')}`;
 
-export function getKind(str: string): string {
+export function getKind(str) {
   if (typeof str !== 'string') {
     return '';
   }
