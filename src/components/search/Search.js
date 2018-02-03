@@ -22,14 +22,17 @@ class Search {
       options: options
     };
     this.ticking = false;
-    this.render();
-    this.attachEventListeners();
+    this.render();    
 
   }
 
   attachEventListeners() {
+    $('.nav-wrapper .dropdown-button').dropdown({
+      inDuration: 300,
+      outDuration: 225
+    });
     const searchInput = document.querySelector('.search-wrapper input');
-    const searchOptionLink = document.querySelector('#search-options li a');
+    const searchOptionLink = document.querySelector('#search-options');
     searchInput.addEventListener('keyup', (e) => {
       if (!this.ticking) {
         this.rAf = window.requestAnimationFrame(this.update(e));
@@ -38,10 +41,13 @@ class Search {
     });
 
     searchOptionLink.addEventListener('click', (e) => {
-      this.media = e.target.textContent;
-      if (this.state.query.length > 0) {
-        this.emitSearch();
-      }
+      if(e.target.nodeName === 'A'){
+        this.state.media = e.target.textContent.trim();
+        if (this.state.query.length > 0) {
+          this.emitSearch();
+        }
+        this.render();
+      }      
     });
   }
 
@@ -52,6 +58,8 @@ class Search {
   render() {
     const html = searchTemplate(this.state);
     document.querySelector('#container #search').innerHTML = html;
+    document.querySelector('.search-wrapper input').value =  this.state.query;
+    this.attachEventListeners();
   }
 
   update = ({keyCode, target: {value: query}}) => _ => {

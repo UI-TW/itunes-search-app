@@ -3,7 +3,21 @@
   align-items: center;
 }
 
+.nav i.material-icons{
+  float: left;
+}
+
+@media (max-width: 500px) {
+  nav ul a{
+    padding:0;
+  }
+}
+
 .title {
   font-size: 24px;
   margin: 10px;
+}
+
+.spacer{
+  flex: 1;
 }

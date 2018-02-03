@@ -3,11 +3,17 @@ import {getApiUrl} from '../../utils';
 import state from '../../state';
 import Message from '../Message/Message';
 import List from '../list/List';
-
+import Login from '../authentication/Login';
+import Upvote from '../upvote/Upvote';
 
 class Container {
   constructor() {
     emitter.on('search', this.getSearchResult.bind(this));
+    this.render();   
+  }
+
+  changeView(){
+    this.render();
   }
 
   async getSearchResult(headerState) {
@@ -25,12 +31,21 @@ class Container {
 
   render() {
     let html;
-    if (state.status.length) {
-      html = new Message().render();
+    if(state.activeView === 'login'){
+      html = new Login().render();
+    }
+    else if(state.activeView === 'favorites'){
+      html = new Upvote().render();
     }
     else {
-      html = new List().render();
+      if (state.status.length) {
+        html = new Message().render();
+      }
+      else {
+        html = new List().render();
+      }
     }
+    
 
     document.querySelector('#search_result').innerHTML = html;
   }

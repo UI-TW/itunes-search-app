@@ -1,4 +1,5 @@
 export default {
     data: {},
-    status: 'init'
+    status: 'init',
+    activeView: 'search'
 }
