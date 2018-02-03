@@ -6,7 +6,6 @@ webpackConfig.module.rules.push({
   test: /\.js$/,
   exclude: /node_modules/,
   use: [
-    'react-hot-loader/webpack',
     'babel-loader'
   ]
 },
@@ -19,7 +18,6 @@ module.exports = Object.assign({}, webpackConfig, {
   devtool: 'cheap-module-eval-source-map',
   entry: [
     'babel-polyfill',
-    'react-hot-loader/patch',
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server',
     './src'
