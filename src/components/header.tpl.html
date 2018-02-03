@@ -1,0 +1,32 @@
+<div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper cyan">
+            <div class="header-search-wrapper">
+                <i class="material-icons black-text">search</i>
+                <input
+                    type="text"
+                    placeholder="Search"
+                    class="search-input white black-text"
+                />
+            </div>
+            <div class="dropdown-wrapper">
+                <div
+                    class="dropdown-button"
+                    role="button"
+                >
+                {{media}}
+                </div>
+                <ul id="search-options" class="dropdown-content">
+                <!-- {this.renderSearchOption()} -->
+                    {{#each options}}
+                    <li>
+                        <a tabIndex="0" role="button">
+                            {{this}}
+                        </a>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>        
+    </nav>
+</div>
