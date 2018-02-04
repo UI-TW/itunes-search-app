@@ -1,11 +1,11 @@
 <div class="navbar-fixed">
-    <nav class="nav blue darken-2">
+    <nav class="nav dark-primary-color">
         <h1 id="appHeader" role="button" class="title">Music finder</h1>
         <div class="spacer"></div>
         <ul class="menu">
             {{#if isGuest}}
             <li class="menu__item">
-                <a href="javascript:;" id="loginLink" class="menu__link">
+                <a href="javascript:void(0);" id="loginLink" class="menu__link">
                     <i class="material-icons">person</i>
                     Login/Signup
                 </a>
@@ -13,14 +13,19 @@
             {{/if}}
             {{#if isLoggedIn}}
             <li class="menu__item">
-                <a href="javascript:;" id="logoutLink" class="menu__link">
+                <a href="javascript:void(0);" class="menu__link">
                     <i class="material-icons">person</i>
+                    User
+                </a>
+            </li>
+            <li class="menu__item">
+                <a href="javascript:void(0);" id="logoutLink" class="menu__link">
                     Logout
                 </a>
             </li>
             {{/if}}
             <li class="menu__item">
-                <a href="javascript:;" id="favLink" class="menu__link">
+                <a href="javascript:void(0);" id="favLink" class="menu__link">
                     <i class="material-icons">favorite</i>
                     Upvotes
                 </a>

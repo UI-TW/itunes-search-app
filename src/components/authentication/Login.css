@@ -1,3 +1,5 @@
+@import '../../style/palette.css';
+
 .login {
     display: flex;
     flex-direction: column;
@@ -14,19 +16,19 @@
     width: 100%;
 }
 .input-field .prefix.active {
-    color: #2196F3;
+    color: var(--accent-color);
 }
 
 input[type=text]:not(.browser-default):focus:not([readonly])+label,
 input[type=email]:not(.browser-default):focus:not([readonly])+label,
 input[type=password]:not(.browser-default):focus:not([readonly])+label {
-  color: #2196F3;
+  color: var(--accent-color);
 }
 
 input[type=text]:not(.browser-default):focus:not([readonly]),
 input[type=email]:not(.browser-default):focus:not([readonly]),
 input[type=password]:not(.browser-default):focus:not([readonly]) {
-  border-bottom: 2px solid #2196F3;
+  border-bottom: 2px solid var(--accent-color);
   box-shadow: none;
 }
 
