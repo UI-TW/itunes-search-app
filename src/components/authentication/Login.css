@@ -1,3 +1,45 @@
-.login{
-    padding-top: 20px;
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 90px);
 }
+.login__title {
+    padding-bottom: 20px;
+    text-align: center;
+}
+.form-container {
+    padding: 20px 10px;
+    width: 100%;
+}
+.input-field .prefix.active {
+    color: #00acc1;
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly])+label,
+input[type=email]:not(.browser-default):focus:not([readonly])+label,
+input[type=password]:not(.browser-default):focus:not([readonly])+label {
+  color: #00acc1;
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]) {
+  border-bottom: 2px solid #00acc1;
+  box-shadow: none;
+}
+
+@media only screen and (min-width: 768px) {
+    .form-container {
+        padding: 20px;
+    }
+    .login {
+      width: 60%;
+    }
+  }
+  @media only screen and (min-width: 1024px) {
+    .login {
+      width: 40%;
+    }
+  }
