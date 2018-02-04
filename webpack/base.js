@@ -1,20 +1,37 @@
+const path = require('path');
 const autoprefixer = require('autoprefixer');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
+  output: {
+    publicPath: '/dist/',
+    path: path.resolve(__dirname, '../', 'dist/'),
+    filename: 'bundle.js'
+  },
   module: {
     rules: [{
-      test: /\.css$/,
+      test: /\.tpl\.html$/,
+      loader: 'handlebars-loader'
+    }, {
+      test: /\.js$/,
       exclude: /node_modules/,
       use: [
-        'style-loader',
-        'css-loader',
-        {
-          loader: 'postcss-loader',
-          options: {
-            plugins: _ => [autoprefixer({ browsers: ['last 2 versions'] })]
-          }
-        }
+        'babel-loader'
       ]
+    }, {
+      test: /\.css$/,
+      exclude: /node_modules/,
+      use: ['extracted-loader'].concat(ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: [{
+          loader: 'css-loader',
+          options: {importLoaders: 1},
+        },
+          {
+            loader: 'postcss-loader'
+          }
+        ]
+      }))
     }, {
       test: /\.(woff|woff2|ttf|svg)$/,
       exclude: /node_modules/,
@@ -28,5 +45,11 @@ module.exports = {
         'file-loader'
       ]
     }]
+  },
+  plugins: [new ExtractTextPlugin('[name].css')],
+  resolve: {
+    alias: {
+      handlebars: 'handlebars/dist/handlebars.min.js'
+    }
   }
 };
