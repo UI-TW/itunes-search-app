@@ -2,25 +2,16 @@ env:
   browser: true
   es6: true
 
-parserOptions:
-  ecmaFeatures:
-    jsx: true
-
 parser: "babel-eslint"
-
-plugins:
-  - react
 
 extends:
   - airbnb
 
 rules:
-  react/jsx-wrap-multilines: 0
   object-curly-newline: 0
   react/no-unused-state: 0
   react/sort-comp: 0
   react/forbid-prop-types: 0
-  react/jsx-filename-extension: 0
   react/require-render-return: 0
   import/no-unresolved: 0
   no-underscore-dangle: 0
