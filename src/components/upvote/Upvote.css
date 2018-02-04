@@ -1,0 +1,54 @@
+.upvote-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+}
+.upvote-page .row {
+  margin-bottom: 10px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.card-ranking {
+  padding-top: 20px;
+  min-width: 100px;
+  text-align: center;
+  font-size: 32px;
+  line-height: 1;
+}
+.card-image {
+  min-width: 100px;
+  padding-bottom: 20px;
+}
+.card-image img {
+  display: block;
+}
+.card .card-action {
+  border-top: 0;
+}
+.vote-count {
+  display: inline-block;
+  text-align: center;
+}
+.vote-count .material-icons {
+  display: inline-block;
+  vertical-align: middle;
+}
+@media only screen and (min-width: 640px) {
+  .card {
+    flex-direction: row;
+  }
+  .card-ranking {
+    padding-top: 0;
+  }
+  .card-content {
+    display: flex;
+  }
+  .card-image {
+    margin-right: 15px;
+  }
+}
