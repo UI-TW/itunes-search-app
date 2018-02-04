@@ -23,6 +23,11 @@
     background: var(--text-primary-color);
 }
 
+#btn-signup:hover,
+#btn-login:hover{
+    background: var(--default-primary-color);
+}
+
 input[type=text]:not(.browser-default):focus:not([readonly])+label,
 input[type=email]:not(.browser-default):focus:not([readonly])+label,
 input[type=password]:not(.browser-default):focus:not([readonly])+label {
