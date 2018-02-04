@@ -31,7 +31,6 @@
     "start": "yarn dev"
   },
   "dependencies": {
-    "autoprefixer": "^7.1.6",
     "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.3",
     "fecha": "^2.2.0",
