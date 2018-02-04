@@ -11,6 +11,14 @@
                 </a>
             </li>
             {{/if}}
+            {{#if isLoggedIn}}
+            <li class="menu__item">
+                <a href="javascript:;" id="logoutLink" class="menu__link">
+                    <i class="material-icons">person</i>
+                    Logout
+                </a>
+            </li>
+            {{/if}}
             <li class="menu__item">
                 <a href="javascript:;" id="favLink" class="menu__link">
                     <i class="material-icons">favorite</i>

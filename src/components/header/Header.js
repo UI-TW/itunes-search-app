@@ -2,6 +2,7 @@ import './Header.css';
 import headerTemplate from './header.tpl.html';
 import state from '../../state';
 import emitter from '../../emitter';
+import {removeAuthToken} from '../../utils';
 
 class Header {
   constructor() {
@@ -26,6 +27,11 @@ class Header {
           state.activeView = 'favorites';
           emitter.emit('viewChange', state.activeView);
         break;
+        case 'logoutLink':
+          e.preventDefault();
+          removeAuthToken();
+          state.activeView = 'search';
+          emitter.emit('viewChange', state.activeView);
       }
     });
   }
