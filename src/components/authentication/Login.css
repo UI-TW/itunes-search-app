@@ -19,6 +19,10 @@
     color: var(--accent-color);
 }
 
+.form-container {
+    background: var(--text-primary-color);
+}
+
 input[type=text]:not(.browser-default):focus:not([readonly])+label,
 input[type=email]:not(.browser-default):focus:not([readonly])+label,
 input[type=password]:not(.browser-default):focus:not([readonly])+label {
