@@ -1,14 +1,30 @@
-<form>
-    <div>
-        <label for="email">Email</label>
-        <input name="email" type="text">
-    </div>
-    <div>
-        <label for="password">Email</label>
-        <input name="password" type="password">
-    </div>
-    <div>
-        <button>Login</button>
-        <button>Signup</button>
-    </div>
-</form>
+<div class="row login">
+        <form class="col offset-l4 l4 s10 offset-s2">
+            <div class="row">
+                <div class="col s12">
+                    <div class="input-field inline">
+                            <i class="material-icons prefix">email</i>
+                            <input id="email" type="email" class="validate">
+                            <label for="email" data-error="wrong" data-success="right">Email</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <div class="input-field inline">
+                            <i class="material-icons prefix">lock</i>
+                            <input id="password" type="password" class="validate">
+                            <label for="password" data-error="wrong" data-success="right">Password</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                        <button id="btn-signup" class="btn waves-effect waves-light">Signup
+                        </button>
+                        <button id="btn-login" class="btn waves-effect waves-light">Login
+                        </button>
+                </div>
+            </div>
+        </form>
+</div>
