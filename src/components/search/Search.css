@@ -58,3 +58,8 @@ ul li.select {
     flex-grow: initial;
   }
 }
+@media only screen and (min-width: 1024px) {
+  .search-wrapper {
+    width: 30vw;
+  }
+}

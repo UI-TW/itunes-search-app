@@ -7,17 +7,41 @@
   float: left;
 }
 
-@media (max-width: 500px) {
-  nav ul a{
-    padding:0;
-  }
+.menu__link {
+  padding: 2px;
 }
 
 .title {
-  font-size: 24px;
-  margin: 10px;
+  font-size: 14px;
+  margin: 10px 0 10px 10px;
 }
 
 .spacer{
   flex: 1;
+}
+
+@media only screen and (min-width: 360px) {
+  .title {
+    font-size: 17px;
+  }
+  .menu__link {
+    padding: 3px;
+  }
+}
+@media only screen and (min-width: 414px) {
+  .title {
+    font-size: 20px;
+  }
+  .menu__link {
+    padding: 6px;
+  }
+}
+
+@media only screen and (min-width: 640px) {
+  .title {
+    font-size: 24px;
+  }
+  .menu__link {
+    padding: 15px;
+  }
 }
