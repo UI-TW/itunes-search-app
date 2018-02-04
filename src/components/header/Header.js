@@ -9,27 +9,29 @@ class Header {
   }
 
   attachEventListeners(){
-    document.querySelector('#appHeader').addEventListener('click', (e) => {
-      e.preventDefault();
-      state.activeView = 'search';
-      emitter.emit('viewChange', state.activeView);
-    });
-
-    document.querySelector('#loginLink').addEventListener('click', (e) => {
-      e.preventDefault();
-      state.activeView = 'login';
-      emitter.emit('viewChange', state.activeView);
-    });
-
-    document.querySelector('#favLink').addEventListener('click', (e) => {
-      e.preventDefault();
-      state.activeView = 'favorites';
-      emitter.emit('viewChange', state.activeView);
+    document.querySelector('#header').addEventListener('click', (e) => {
+      switch(e.target.id){
+        case 'appHeader': 
+          e.preventDefault();
+          state.activeView = 'search';
+          emitter.emit('viewChange', state.activeView);
+        break;
+        case 'loginLink':
+          e.preventDefault();
+          state.activeView = 'login';
+          emitter.emit('viewChange', state.activeView);
+        break;
+        case 'favLink':
+          e.preventDefault();
+          state.activeView = 'favorites';
+          emitter.emit('viewChange', state.activeView);
+        break;
+      }
     });
   }
 
-  render() {
-    const html = headerTemplate(this.state);
+  render() {    
+    const html = headerTemplate(state);
     document.querySelector('#container #header').innerHTML = html;
     this.attachEventListeners();
   }

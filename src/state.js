@@ -1,5 +1,7 @@
 export default {
     data: {},
     status: 'init',
-    activeView: 'search'
+    activeView: 'search',
+    isLoggedIn: false,
+    isGuest: true
 }

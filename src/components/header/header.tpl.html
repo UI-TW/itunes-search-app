@@ -3,12 +3,14 @@
         <h1 id="appHeader" role="button" class="title">iTunes Search app</h1>
         <div class="spacer"></div>
         <ul class="menu">
+            {{#if isGuest}}
             <li class="menu__item">
                 <a href="javascript:;" id="loginLink" class="menu__link">
                     <i class="material-icons">person</i>
                     Login/Signup
                 </a>
             </li>
+            {{/if}}
             <li class="menu__item">
                 <a href="javascript:;" id="favLink" class="menu__link">
                     <i class="material-icons">favorite</i>
