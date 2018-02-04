@@ -6,12 +6,9 @@
 }
 
 .dropdown-wrapper {
+  margin-left: 15px;
   min-width: 110px;
   text-align: center;
-}
-
-.dropdown-wrapper:hover {
-  background: #009688;
 }
 
 .search-wrapper {
@@ -41,12 +38,10 @@ ul li.select {
   font-weight: 600;
   background: #e0e0e0;
 }
-
 .dropdown-button {
-  height: 3rem;
-  padding: 10px 6px;
+  min-width: 120px;
+  padding: 0 10px;
 }
-
 .dropdown-button.active + .dropdown-content {
   opacity: 1;
   display: block;

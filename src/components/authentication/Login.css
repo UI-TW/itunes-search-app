@@ -14,19 +14,19 @@
     width: 100%;
 }
 .input-field .prefix.active {
-    color: #00acc1;
+    color: #2196F3;
 }
 
 input[type=text]:not(.browser-default):focus:not([readonly])+label,
 input[type=email]:not(.browser-default):focus:not([readonly])+label,
 input[type=password]:not(.browser-default):focus:not([readonly])+label {
-  color: #00acc1;
+  color: #2196F3;
 }
 
 input[type=text]:not(.browser-default):focus:not([readonly]),
 input[type=email]:not(.browser-default):focus:not([readonly]),
 input[type=password]:not(.browser-default):focus:not([readonly]) {
-  border-bottom: 2px solid #00acc1;
+  border-bottom: 2px solid #2196F3;
   box-shadow: none;
 }
 

@@ -3,12 +3,13 @@
   align-items: center;
 }
 
-.nav i.material-icons{
-  float: left;
-}
-
 .menu__link {
   padding: 2px;
+}
+
+.menu__link .material-icons{
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .title {

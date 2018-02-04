@@ -8,17 +8,15 @@
                 />
             </div>
             <div class="dropdown-wrapper">
-                <div
-                    class="dropdown-button"
+                <a
+                    class="dropdown-button btn indigo accent-2"
                     role="button"
                     data-activates="search-options"
-                >
-                {{media}}
-                </div>
+                >{{media}}</a>
                 <ul id="search-options" class="dropdown-content">
                     {{#each options}}
                     <li>
-                        <a tabIndex="0" role="button">
+                        <a tabIndex="0" role="button" class="indigo-text text-accent-2">
                             {{this}}
                         </a>
                     </li>
