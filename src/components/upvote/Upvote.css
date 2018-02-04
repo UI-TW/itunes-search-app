@@ -7,27 +7,27 @@
 .upvote-page .row {
   margin-bottom: 10px;
 }
-.card {
+.upvote-page .card {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.card-ranking {
+.upvote-page .card-ranking {
   padding-top: 20px;
   min-width: 100px;
   text-align: center;
   font-size: 32px;
   line-height: 1;
 }
-.card-image {
+.upvote-page .card-image {
   min-width: 100px;
   padding-bottom: 20px;
 }
-.card-image img {
+.upvote-page .card-image img {
   display: block;
 }
-.card .card-action {
+.upvote-page .card .card-action {
   border-top: 0;
 }
 .vote-count {
@@ -39,16 +39,16 @@
   vertical-align: middle;
 }
 @media only screen and (min-width: 640px) {
-  .card {
+  .upvote-page .card {
     flex-direction: row;
   }
-  .card-ranking {
+  .upvote-page .card-ranking {
     padding-top: 0;
   }
-  .card-content {
+  .upvote-page .card-content {
     display: flex;
   }
-  .card-image {
+  .upvote-page .card-image {
     margin-right: 15px;
   }
 }

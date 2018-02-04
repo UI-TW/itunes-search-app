@@ -1,3 +1,5 @@
+@import '../style/utils.css';
+
 *, *::before, *::after  {
   box-sizing: border-box;
 }
