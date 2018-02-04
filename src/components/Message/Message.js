@@ -27,7 +27,7 @@ class Message {
   }
 
   render() {
-    return messageTemplate({
+    document.querySelector('#search_result').innerHTML = messageTemplate({
       status: state.status,
       msgMap
     });

@@ -77,7 +77,7 @@ class Login{
     }
     render(){
         this.attachEventListener();
-        return loginTemplate();
+        document.querySelector('#search_result').innerHTML = loginTemplate();
     }
 }
 

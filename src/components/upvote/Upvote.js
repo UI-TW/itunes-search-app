@@ -7,7 +7,7 @@ class Upvote{
     }
 
     render(){
-        return upvoteTemplate();
+      document.querySelector('#search_result').innerHTML = upvoteTemplate();
     }
 }
 

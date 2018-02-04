@@ -9,10 +9,10 @@ import Upvote from '../upvote/Upvote';
 class Container {
   constructor() {
     emitter.on('search', this.getSearchResult.bind(this));
-    this.render();   
+    this.render();
   }
 
-  changeView(){
+  changeView() {
     this.render();
   }
 
@@ -30,24 +30,20 @@ class Container {
   }
 
   render() {
-    let html;
-    if(state.activeView === 'login'){
-      html = new Login().render();
+    if (state.activeView === 'login') {
+      new Login().render();
     }
-    else if(state.activeView === 'favorites'){
-      html = new Upvote().render();
+    else if (state.activeView === 'favorites') {
+      new Upvote().render();
     }
     else {
       if (state.status.length) {
-        html = new Message().render();
+        new Message().render();
       }
       else {
-        html = new List().render();
+        new List().render();
       }
     }
-    
-
-    document.querySelector('#search_result').innerHTML = html;
   }
 
 }

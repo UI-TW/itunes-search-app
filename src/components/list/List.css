@@ -1,3 +1,5 @@
+@import '../../style/palette.css';
+
 .list-wrapper {
     display: grid;
     grid-template-columns: repeat(2, 46vw);
@@ -9,6 +11,13 @@
 
 .list-wrapper .card {
     padding: 10px;
+}
+
+.list-wrapper .card-content {
+    flex: 1;
+    padding: 0 0 0 10px;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .list-wrapper .card-content .card-title {
@@ -23,6 +32,10 @@
     transform: translateY(-50%);
 }
 
+.list-wrapper .card-title {
+    font-size: 16px;
+}
+
 .list-wrapper .card-image {
     flex: 0 0 100px;
 }
@@ -35,13 +48,25 @@
     object-fit: fill;
 }
 
+.list-wrapper .card-actions {
+    justify-content: space-between;
+}
+
 .list-wrapper .card-reveal .card-title {
     align-items: center;
     justify-content: space-between;
 }
 
-.list-wrapper .card-title {
-    font-size: 16px;
+.list-wrapper .like-icon {
+    color: var(--secondary-text-color);
+}
+
+.list-wrapper .like-icon:not(.active-icon):hover {
+    color: var(--light-primary-color);
+}
+
+.list-wrapper .active-icon {
+    color: var(--default-primary-color);
 }
 
 @media only screen and (min-width: 640px) {
