@@ -1,5 +1,5 @@
 import loginTemplate from './login.tpl.html';
-import { setAuthToken } from '../../utils';
+import {setAuthToken, setUserName} from '../../utils/storageUtils';
 import emitter from '../../emitter';
 import state from '../../state';
 import apiSettings from '../../urlConfig';
@@ -9,6 +9,7 @@ class Login {
   constructor() {
     this.removeEventListener();
   }
+
   async login() {
     try {
       const email = document.querySelector('#email').value;
@@ -27,15 +28,18 @@ class Login {
       const json = await resp.json();
       if (json.success) {
         setAuthToken(json.token);
+        setUserName(json.email);
         state.activeView = 'search';
         state.isLoggedIn = true;
         state.isGuest = false;
+        emitter.emit('userVerification');
         emitter.emit('viewChange', 'search');
       }
     } catch (e) {
       throw e;
     }
   }
+
   async signup() {
     try {
       const email = document.querySelector('#email').value;
@@ -54,15 +58,18 @@ class Login {
       const json = await resp.json();
       if (json.success) {
         setAuthToken(json.token);
+        setUserName(json.email);
         state.activeView = 'search';
         state.isLoggedIn = true;
         state.isGuest = false;
+        emitter.emit('userVerification');
         emitter.emit('viewChange', 'search');
       }
     } catch (e) {
       throw e;
     }
   }
+
   onClick(e) {
     if (e.target.id === 'btn-signup') {
       e.preventDefault();
@@ -72,12 +79,15 @@ class Login {
       this.login();
     }
   }
+
   attachEventListener() {
     document.querySelector('#search_result').addEventListener('click', this.onClick.bind(this));
   }
+
   removeEventListener() {
     document.querySelector('#search_result').removeEventListener('click', this.onClick.bind(this));
   }
+
   render() {
     this.attachEventListener();
     document.querySelector('#search_result').innerHTML = loginTemplate();

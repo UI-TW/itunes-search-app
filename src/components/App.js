@@ -1,5 +1,6 @@
 import Header from './header/Header';
-import { getApiUrl } from '../utils';
+import {getApiUrl} from '../utils';
+import {getUserName} from '../utils/storageUtils';
 import Search from './search/Search';
 import Container from './container/Container';
 import './App.css';
@@ -10,6 +11,7 @@ import containerTemplate from './container/container.tpl.html';
 class App {
   constructor() {
     emitter.on('viewChange', this.render.bind(this));
+    emitter.on('userVerification', this.setUserInfo.bind(this));
     emitter.on('search', this.getSearchResult.bind(this));
   }
 
@@ -25,6 +27,12 @@ class App {
       state.status = 'error';
     }
     this.render();
+  }
+
+  setUserInfo() {
+    state.isLoggedIn = true;
+    state.isGuest = false;
+    state.email = getUserName();
   }
 
   render() {

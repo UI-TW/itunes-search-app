@@ -3,5 +3,7 @@ export default {
   status: 'init',
   activeView: 'search',
   isLoggedIn: false,
-  isGuest: true
+  isGuest: true,
+  email: 'Guest'
 };
+

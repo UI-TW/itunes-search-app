@@ -10,18 +10,6 @@ export function getMedia(str) {
   return `${sg[0].toLowerCase()}${capitalize(sg[1])}`;
 }
 
-export const setAuthToken = (token) => {
-  sessionStorage.setItem('token', token);
-};
-
-export const getAuthToken = () => {
-  return sessionStorage.getItem('token');
-};
-
-export const removeAuthToken = () => {
-  sessionStorage.removeItem('token');
-};
-
 export const getApiUrl = ({
   media,
   query

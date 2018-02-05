@@ -2,7 +2,8 @@ import './List.css';
 import listTemplate from './list.tpl.html';
 import state from '../../state';
 import apiSettings from '../../urlConfig';
-import { getAuthToken } from '../../utils';
+import {getAuthToken} from '../../utils/storageUtils';
+
 
 const attachEventListeners = () => {
   document.querySelector('#search_result').addEventListener('click', (e) => {

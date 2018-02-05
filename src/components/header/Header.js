@@ -2,7 +2,8 @@ import './Header.css';
 import headerTemplate from './header.tpl.html';
 import state from '../../state';
 import emitter from '../../emitter';
-import { removeAuthToken } from '../../utils';
+import {removeAuthToken, removeUserName} from '../../utils/storageUtils';
+
 
 class Header {
   constructor() {
@@ -29,8 +30,10 @@ class Header {
       case 'logoutLink':
         e.preventDefault();
         removeAuthToken();
+        removeUserName();
         state.isLoggedIn = false;
         state.isGuest = true;
+        state.email = 'Guest';
         state.activeView = 'search';
         emitter.emit('viewChange', state.activeView);
         this.render();
