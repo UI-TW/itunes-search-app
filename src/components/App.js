@@ -16,6 +16,7 @@ class App {
   async getSearchResult(headerState) {
     try {
       state.status = 'loading';
+      this.render();
       const resp = await fetch(getApiUrl(headerState));
       const json = await resp.json();
       state.data = {...json};
