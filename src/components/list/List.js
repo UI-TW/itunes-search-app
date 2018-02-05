@@ -9,38 +9,32 @@ class List {
   }
 
   attachEventListeners() {
-    const likeIcon = document.querySelectorAll('.like-icon');
-    if (likeIcon.length) {
-      Array.from(likeIcon).forEach(icon => {
-        icon.addEventListener('click', (e) => {
-          e.target.classList.toggle('active-icon');
-          const collectionId = e.target.querySelector('input[type="hidden"]').value;
-          const collection = state.data.results.find(item => item.collectionId == parseInt(collectionId, 10));
-            const resp = fetch('https://dry-temple-99897.herokuapp.com/api/upvote', {
-              method: 'POST',
-              body: JSON.stringify(collection),
-              headers: new Headers({
-                'Content-Type': 'application/json',
-                'authorization': getAuthToken()
-              })
-            })
-            .then(res => res.json())
-            .then(res => {
-              console.log('added successfully');
-            })
-        });
-      });
-    }
+    document.querySelector('#search_result').addEventListener('click', (e) => {
+      if ([...e.target.classList].includes('like-icon')) {
+        e.target.classList.toggle('active-icon');
+        const collectionId = e.target.querySelector('input[type="hidden"]').value;
+        const collection = state.data.results.find(item => item.collectionId == parseInt(collectionId, 10));
+        fetch('https://dry-temple-99897.herokuapp.com/api/upvote', {
+          method: 'POST',
+          body: JSON.stringify(collection),
+          headers: new Headers({
+            'Content-Type': 'application/json',
+            'authorization': getAuthToken()
+          })
+        })
+          .then(res => res.json());
+      }
+    });
   }
 
   render() {
     const results = state.data.results;
     const isLoggedIn = state.isLoggedIn;
+    this.attachEventListeners();
     document.querySelector('#search_result').innerHTML = listTemplate({
       data: results,
       isLoggedIn
     });
-    this.attachEventListeners();
   }
 }
 
