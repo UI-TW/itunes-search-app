@@ -8,7 +8,7 @@
 }
 
 .dropdown-wrapper {
-  margin-left: 15px;
+  margin-right: 15px;
   min-width: 110px;
   text-align: center;
 }
@@ -21,7 +21,7 @@
 
 .search-wrapper i {
   position: absolute;
-  left: 12px;
+  right: 10px;
   top: 30px;
 }
 
@@ -29,7 +29,8 @@
   background: rgba(255, 255, 255, .3);
   border-radius: 3px;
   box-sizing: border-box;
-  padding-left: 50px;
+  padding-left: 10px;
+  padding-right: 50px;
 }
 
 .btn-wrapper {
