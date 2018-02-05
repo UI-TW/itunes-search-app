@@ -23,7 +23,7 @@ export const setAuthToken = (token) => {
 };
 
 export const getAuthToken = () => {
-  return sessionStorage.setItem('token');
+  return sessionStorage.getItem('token');
 };
 
 export const removeAuthToken = () => {

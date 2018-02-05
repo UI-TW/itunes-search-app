@@ -15,10 +15,15 @@
                     <i class="material-icons right activator">more_vert</i>
                 </div>
                 <div class="card-actions u-flex">
-                    <i class="material-icons like-icon u-pointer">thumb_up</i>
+                    {{#if ../isLoggedIn}}
+                    <i class="material-icons like-icon u-pointer">
+                        thumb_up
+                        <input type="hidden" value="{{collectionId}}">
+                    </i>
+                    {{/if}}
                     <a target="_blank" href="{{trackViewUrl}}">
                         More
-                    </a>
+                    </a>                    
                 </div>
             </div>
             <div class="card-reveal">

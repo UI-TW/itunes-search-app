@@ -1,13 +1,26 @@
 import upvoteTemplate from './upvote.tpl.html';
+import state from '../../state';
 import './Upvote.css';
 
 class Upvote{
     constructor(){
+      this.getUpvotes();
+    }
 
+    async getUpvotes(){
+      try {
+        state.status = 'loading';
+        const resp = await fetch('https://dry-temple-99897.herokuapp.com/api/upvote');
+        const json = await resp.json();
+        state.upvotes = {...json.favorites};
+        this.render();
+      } catch (e) {
+        state.status = 'error';
+      }      
     }
 
     render(){
-      document.querySelector('#search_result').innerHTML = upvoteTemplate();
+      document.querySelector('#search_result').innerHTML = upvoteTemplate(state);
     }
 }
 

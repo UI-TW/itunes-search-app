@@ -32,6 +32,7 @@ class Header {
           removeAuthToken();
           state.activeView = 'search';
           emitter.emit('viewChange', state.activeView);
+          this.render();
       }
     });
   }
