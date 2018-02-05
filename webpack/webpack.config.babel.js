@@ -7,14 +7,13 @@ webpackConfig.output = {
   path: path.resolve(__dirname, '../', 'dist/'),
   filename: 'bundle.js'
 };
-webpackConfig.plugins.push(
-  new webpack.optimize.UglifyJsPlugin({
-    output: {
-      comments: false
-    },
-    compress: {
-      warnings: false
-    }
-  }));
+webpackConfig.plugins.push(new webpack.optimize.UglifyJsPlugin({
+  output: {
+    comments: false
+  },
+  compress: {
+    warnings: false
+  }
+}));
 
 module.exports = webpackConfig;

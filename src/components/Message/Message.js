@@ -22,10 +22,6 @@ const msgMap = {
 
 
 class Message {
-  constructor() {
-
-  }
-
   render() {
     document.querySelector('#search_result').innerHTML = messageTemplate({
       status: state.status,

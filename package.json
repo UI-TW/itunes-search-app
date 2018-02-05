@@ -28,14 +28,17 @@
     "dev": "webpack-dev-server --config ./webpack/webpack.config.dev.js",
     "deploy": "yarn clean && yarn build",
     "lint": "eslint src/** webpack/** test/**",
+    "lint:fix": "npm run lint -- --fix",
     "start": "yarn dev"
   },
   "dependencies": {
+    "autoprefixer": "^7.2.5",
     "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.3",
     "fecha": "^2.2.0",
     "handlebars": "^4.0.11",
-    "handlebars-loader": "^1.6.0"
+    "handlebars-loader": "^1.6.0",
+    "extract-text-webpack-plugin": "^3.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.7.2",
@@ -46,8 +49,7 @@
     "css-loader": "^0.28.4",
     "eslint": "^4.8.0",
     "eslint-config-airbnb": "^16.0.0",
-    "eslint-plugin-import": "^2.7.0",
-    "extract-text-webpack-plugin": "^3.0.0",
+    "eslint-plugin-import": "^2.7.0",    
     "extracted-loader": "^1.0.4",
     "file-loader": "^1.1.4",
     "identity-obj-proxy": "^3.0.0",

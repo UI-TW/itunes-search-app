@@ -13,20 +13,14 @@ class Container {
   render() {
     if (state.activeView === 'login') {
       new Login().render();
-    }
-    else if (state.activeView === 'favorites') {
+    } else if (state.activeView === 'favorites') {
       new Upvote().render();
-    }
-    else {
-      if (state.status.length) {
-        new Message().render();
-      }
-      else {
-        new List().render();
-      }
+    } else if (state.status.length) {
+      new Message().render();
+    } else {
+      new List().render();
     }
   }
-
 }
 
 export default Container;

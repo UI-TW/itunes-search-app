@@ -17,14 +17,11 @@ const options = [
 
 class Search {
   constructor() {
-    this.state = {
-      media: 'All',
-      query: '',
-      options: options
-    };
+    state.media = state.media || 'All';
+    state.query = state.query || '';
+    state.options = options;
     this.ticking = false;
-    this.render();    
-
+    this.render();
   }
 
   attachEventListeners() {
@@ -42,35 +39,34 @@ class Search {
     });
 
     searchOptionLink.addEventListener('click', (e) => {
-      if(e.target.nodeName === 'A'){
-        this.state.media = e.target.textContent.trim();
-        if (this.state.query.length > 0) {
+      if (e.target.nodeName === 'A') {
+        state.media = e.target.textContent.trim();
+        if (state.query.length > 0) {
           this.emitSearch();
         }
         this.render();
-      }      
+      }
     });
   }
 
   emitSearch() {
-    emitter.emit('search', this.state);
+    emitter.emit('search', state);
   }
 
   render() {
-    const html = searchTemplate(this.state);
+    const html = searchTemplate(state);
     document.querySelector('#container #search').innerHTML = html;
-    document.querySelector('.search-wrapper input').value =  this.state.query;
+    document.querySelector('.search-wrapper input').value = state.query;
     this.attachEventListeners();
   }
 
-  update = ({keyCode, target: {value: query}}) => _ => {
-    this.state.query = query;
+  update = ({ keyCode, target: { value: query } }) => _ => {
+    state.query = query;
     if (keyCode === 13) {
       this.emitSearch();
     }
     this.ticking = false;
   }
-
 }
 
 export default Search;

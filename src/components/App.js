@@ -1,5 +1,5 @@
 import Header from './header/Header';
-import {getApiUrl} from '../utils';
+import { getApiUrl } from '../utils';
 import Search from './search/Search';
 import Container from './container/Container';
 import './App.css';
@@ -8,7 +8,7 @@ import state from '../state';
 import containerTemplate from './container/container.tpl.html';
 
 class App {
-  constructor(){
+  constructor() {
     emitter.on('viewChange', this.render.bind(this));
     emitter.on('search', this.getSearchResult.bind(this));
   }
@@ -19,7 +19,7 @@ class App {
       this.render();
       const resp = await fetch(getApiUrl(headerState));
       const json = await resp.json();
-      state.data = {...json};
+      state.data = { ...json };
       state.status = json.resultCount ? '' : 'noContent';
     } catch (e) {
       state.status = 'error';
@@ -27,11 +27,11 @@ class App {
     this.render();
   }
 
-  render(){
+  render() {
     const appContainer = document.querySelector('#itunes-search');
     appContainer.innerHTML = containerTemplate();
     new Header();
-    if(state.activeView === 'search'){
+    if (state.activeView === 'search') {
       new Search();
     }
     new Container();

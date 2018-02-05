@@ -1,4 +1,4 @@
-//const baseRoute = 'http://localhost:3030';
+// const baseRoute = 'http://localhost:3030';
 const baseRoute = 'https://dry-temple-99897.herokuapp.com';
 const baseUrl = `${baseRoute}/api`;
 const apiSettings = {
