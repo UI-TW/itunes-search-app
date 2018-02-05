@@ -1,24 +1,16 @@
 <div class="upvote-page">
-    <h4 class="indigo-text upvote-page__title">Trending</h4>
+    <h2 class="indigo-text upvote-page__title">Movies trending now</h2>
     {{#each upvotes}}
-    <div class="row">
-        <div class="col s12 l10 push-l1 xl8 push-xl2">
-            <div class="card">
-                <div class="card-ranking indigo-text text-darken-2">
-                    {{count}}
-                </div>
-                <div class="card-content">
-                    <div class="card-image">
-                        <img src="{{artworkUrl60}}">
-                    </div>
-                    <div class="card-info">
-                        <span class="card-title">{{collectionName}}</span>
-                    </div>
-                </div>
-                <!-- <div class="card-action">
-                    <span class="vote-count blue-text text-darken-2">{{count}} <i class="material-icons">favorite</i></span>
-                </div> -->
+    <div class="card">
+        <div class="card-info">
+            <div class="card-info__ranking">
+                <span>{{count}}</span>
+                <i class="material-icons like-icon u-pointer">trending_up</i>
             </div>
+            <h3 class="card-info__title">{{collectionName}}</h3>
+        </div>
+        <div class="card-image">
+            <img src="{{artworkUrl60}}">
         </div>
     </div>
     {{/each}}
