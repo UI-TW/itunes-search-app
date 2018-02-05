@@ -1,9 +1,9 @@
 {
-  "name": "react-iTunes-search",
-  "version": "2.2.2",
-  "description": "simple web app for iTunes Search implemented by React",
+  "name": "itunes-search-app",
+  "version": "1.0.0",
+  "description": "simple web app for iTunes Search implemented using Vanila JS",
   "keywords": [
-    "react",
+    "Vanila JS",
     "iTunes",
     "search",
     "apple",
@@ -12,9 +12,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:LeoAJ/react-facebook-friends.git"
+    "url": "git@github.com:PWA-TW/itunes-search-app.git"
   },
-  "author": "Leo Hsieh <leo0924@gmail.com> (http://leoj.js.org)",
+  "author": "Thoughworks <https://www.thoughtworks.com/>",
   "license": "MIT",
   "scripts": {
     "coverage": "jest --coverage",
