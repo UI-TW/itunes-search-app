@@ -7,8 +7,10 @@ import {getAuthToken} from '../../utils/storageUtils';
 
 const attachEventListeners = () => {
   document.querySelector('#search_result').addEventListener('click', (e) => {
-    if ([...e.target.classList].includes('like-icon')) {
-      e.target.classList.toggle('active-icon');
+    if(e.target.classList.contains('active-icon')) {
+      return false;
+    } else if ([...e.target.classList].includes('like-icon')) {
+      e.target.classList.add('active-icon');
       const collectionId = e.target.querySelector('input[type="hidden"]').value;
       const collection = state.data.results.find(item =>
         item.collectionId === parseInt(collectionId, 10));
@@ -26,6 +28,7 @@ const attachEventListeners = () => {
 };
 
 class List {
+
   render() {
     const isLoggedIn = { state };
     attachEventListeners();
