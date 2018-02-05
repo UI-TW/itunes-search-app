@@ -25,11 +25,14 @@ class Login{
                 })
             });
             const json = await resp.json();
-            setAuthToken(json.token);
-            state.activeView = 'search';
-            state.isLoggedIn = true;
-            state.isGuest = false;
-            emitter.emit('viewChange', 'search');
+            if(json.success){
+                setAuthToken(json.token);
+                state.activeView = 'search';
+                state.isLoggedIn = true;
+                state.isGuest = false;
+                emitter.emit('viewChange', 'search');
+            }
+            
         } catch(e){
 
         }
@@ -51,11 +54,14 @@ class Login{
                 })
             });
             const json = await resp.json();
-            setAuthToken(json.token);
-            state.activeView = 'search';
-            state.isLoggedIn = true;
-            state.isGuest = false;
-            emitter.emit('viewChange', 'search');
+            if(json.success){
+                setAuthToken(json.token);
+                state.activeView = 'search';
+                state.isLoggedIn = true;
+                state.isGuest = false;
+                emitter.emit('viewChange', 'search');
+            }
+            
         } catch(e){
 
         }
