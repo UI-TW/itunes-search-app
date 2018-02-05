@@ -1,26 +1,18 @@
 <div class="nav-wrapper">
-            <div class="search-wrapper">
-                <i class="material-icons black-text">search</i>
-                <input
-                    type="text"
-                    placeholder="Search"
-                    class="search-input white black-text"
-                />
-            </div>
-            <div class="dropdown-wrapper">
-                <a
-                    class="dropdown-button btn accent-color"
-                    role="button"
-                    data-activates="search-options"
-                >{{media}}</a>
-                <ul id="search-options" class="dropdown-content">
-                    {{#each options}}
-                    <li>
-                        <a tabIndex="0" role="button" class="primary-text-color">
-                            {{this}}
-                        </a>
-                    </li>
-                    {{/each}}
-                </ul>
-            </div>
-        </div>
+    <div class="search-wrapper">
+        <label for="searchField"><i class="material-icons black-text">search</i></label>
+        <input id="searchField" type="text" placeholder="Search" class="search-input white black-text" />
+    </div>
+    <div class="dropdown-wrapper">
+        <a class="dropdown-button btn blue accent-4" role="button" data-activates="search-options">{{media}}</a>
+        <ul id="search-options" class="dropdown-content">
+            {{#each options}}
+            <li>
+                <a tabindex="0" role="button" class="primary-text-color">
+                    {{this}}
+                </a>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</div>
