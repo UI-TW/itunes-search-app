@@ -29,7 +29,10 @@ class Message {
   render() {
     document.querySelector('#search_result').innerHTML = messageTemplate({
       status: state.status,
-      msgMap
+      isLoading: state.status === 'loading',
+      isCompleted: state.status !== 'loading',
+      statusIcon: msgMap[state.status].icon,
+      statusText: msgMap[state.status].msg
     });
   }
 }
