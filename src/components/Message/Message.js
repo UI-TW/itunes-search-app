@@ -5,7 +5,7 @@ import messageTemplate from './message.tpl.html';
 const msgMap = {
   init: {
     icon: 'music_note',
-    msg: 'Welcome back!'
+    msg: null
   },
   loading: {
     msg: 'Loading...'
@@ -24,6 +24,7 @@ const msgMap = {
 class Message {
   render() {
     document.querySelector('#search_result').innerHTML = messageTemplate({
+      showMessage: state.status !== 'init',
       status: state.status,
       isLoading: state.status === 'loading',
       isCompleted: state.status !== 'loading',
