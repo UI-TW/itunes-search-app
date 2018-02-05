@@ -1,6 +1,7 @@
 import './List.css';
 import listTemplate from './list.tpl.html';
 import state from '../../state';
+import apiSettings from '../../urlConfig';
 import {getAuthToken} from '../../utils';
 
 class List {
@@ -14,7 +15,7 @@ class List {
         e.target.classList.toggle('active-icon');
         const collectionId = e.target.querySelector('input[type="hidden"]').value;
         const collection = state.data.results.find(item => item.collectionId == parseInt(collectionId, 10));
-        fetch('https://dry-temple-99897.herokuapp.com/api/upvote', {
+        fetch(apiSettings.upvote, {
           method: 'POST',
           body: JSON.stringify(collection),
           headers: new Headers({

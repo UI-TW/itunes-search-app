@@ -1,12 +1,4 @@
-export const kindColorMap = {
-  song: 'teal',
-  'feature-movie': 'pink',
-  ebook: 'blue',
-  'music-video': 'orange',
-  podcast: 'green',
-  'tv-episode': 'red',
-  software: 'indigo'
-};
+import apiSettings from './urlConfig';
 
 export const capitalize = (str) => (`${str[0].toUpperCase()}${str.slice(1).toLowerCase()}`);
 
@@ -33,7 +25,7 @@ export const removeAuthToken = () => {
 export const getApiUrl = ({
   media,
   query
-}) => `https://dry-temple-99897.herokuapp.com/api/search?media=${getMedia(media || 'all')}&term=${query.split(' ').join('+')}`;
+}) => `${apiSettings.search}?media=${getMedia(media || 'all')}&term=${query.split(' ').join('+')}`;
 
 export function getKind(str) {
   if (typeof str !== 'string') {

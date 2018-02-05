@@ -1,5 +1,6 @@
 import upvoteTemplate from './upvote.tpl.html';
 import state from '../../state';
+import apiSettings from '../../urlConfig';
 import './Upvote.css';
 
 class Upvote{
@@ -10,7 +11,7 @@ class Upvote{
     async getUpvotes(){
       try {
         state.status = 'loading';
-        const resp = await fetch('https://dry-temple-99897.herokuapp.com/api/upvote');
+        const resp = await fetch(apiSettings.upvote);
         const json = await resp.json();
         state.upvotes = {...json.favorites};
         this.render();

@@ -2,6 +2,7 @@ import loginTemplate from './login.tpl.html';
 import {setAuthToken} from '../../utils';
 import emitter from '../../emitter';
 import state from '../../state';
+import apiSettings from '../../urlConfig';
 import './Login.css';
 
 class Login{
@@ -12,7 +13,7 @@ class Login{
         try{
             const email = document.querySelector('#email').value;
             const password = document.querySelector('#password').value;
-            const url = 'https://dry-temple-99897.herokuapp.com/api/accounts/login';
+            const url = apiSettings.login;
             const resp = await fetch(url, {
                 method: 'POST',
                 body: JSON.stringify({
@@ -38,7 +39,7 @@ class Login{
         try{
             const email = document.querySelector('#email').value;
             const password = document.querySelector('#password').value;
-            const url = 'https://dry-temple-99897.herokuapp.com/api/accounts/signup';
+            const url = apiSettings.signup;
             const resp = await fetch(url, {
                 method: 'POST',
                 body: JSON.stringify({
