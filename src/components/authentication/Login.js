@@ -1,5 +1,5 @@
 import loginTemplate from './login.tpl.html';
-import {setAuthToken, setUserName} from '../../utils/storageUtils';
+import { setAuthToken, setUserName } from '../../utils/storageUtils';
 import emitter from '../../emitter';
 import state from '../../state';
 import apiSettings from '../../urlConfig';

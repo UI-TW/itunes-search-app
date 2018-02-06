@@ -2,12 +2,12 @@ import './List.css';
 import listTemplate from './list.tpl.html';
 import state from '../../state';
 import apiSettings from '../../urlConfig';
-import {getAuthToken} from '../../utils/storageUtils';
+import { getAuthToken } from '../../utils/storageUtils';
 
 
 const attachEventListeners = () => {
   document.querySelector('#search_result').addEventListener('click', (e) => {
-    if(e.target.classList.contains('active-icon')) {
+    if (e.target.classList.contains('active-icon')) {
       return false;
     } else if ([...e.target.classList].includes('like-icon')) {
       e.target.classList.add('active-icon');
@@ -28,9 +28,8 @@ const attachEventListeners = () => {
 };
 
 class List {
-
   render() {
-    const isLoggedIn = { state };
+    const { isLoggedIn } = state;
     attachEventListeners();
     document.querySelector('#search_result').innerHTML = listTemplate({
       data: state.data.results,

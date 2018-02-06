@@ -1,3 +1,4 @@
+/* global $ */
 import searchTemplate from './search.tpl.html';
 import emitter from '../../emitter';
 import './Search.css';

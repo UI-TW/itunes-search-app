@@ -2,7 +2,7 @@ import './Header.css';
 import headerTemplate from './header.tpl.html';
 import state from '../../state';
 import emitter from '../../emitter';
-import {removeAuthToken, removeUserName} from '../../utils/storageUtils';
+import { removeAuthToken, removeUserName } from '../../utils/storageUtils';
 
 
 class Header {

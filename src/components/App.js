@@ -1,6 +1,6 @@
 import Header from './header/Header';
-import {getApiUrl} from '../utils';
-import {getUserName} from '../utils/storageUtils';
+import { getApiUrl } from '../utils';
+import { getUserName } from '../utils/storageUtils';
 import Search from './search/Search';
 import Container from './container/Container';
 import './App.css';
