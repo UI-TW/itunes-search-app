@@ -13,6 +13,7 @@ class Header {
   onClick(e) {
     switch (e.target.id) {
       case 'appHeader':
+      case 'searchLink':
         e.preventDefault();
         state.status = 'init';
         state.activeView = 'search';

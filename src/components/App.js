@@ -1,3 +1,4 @@
+import '../helpers';
 import Header from './header/Header';
 import { getApiUrl } from '../utils';
 import { getUserName } from '../utils/storageUtils';
