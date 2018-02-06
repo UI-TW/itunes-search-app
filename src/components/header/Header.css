@@ -15,7 +15,7 @@
   color: var(--dark-primary-color);
 }
 
-.menu__link .material-icons{
+.menu__link .material-icons {
   display: inline-block;
   vertical-align: middle;
 }
@@ -25,7 +25,7 @@
   margin: 10px 0 10px 10px;
 }
 
-.spacer{
+.spacer {
   flex: 1;
 }
 
@@ -37,14 +37,17 @@
   .title {
     font-size: 17px;
   }
+
   .menu__link {
     padding: 0 3px;
   }
 }
+
 @media only screen and (min-width: 414px) {
   .title {
     font-size: 20px;
   }
+
   .menu__link {
     padding: 0 6px;
   }
@@ -56,5 +59,14 @@
   }
   .menu__link {
     padding: 0 15px;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .icon-text {
+    display: none;
+  }
+  .menu__link .material-icons {
+    padding: 0 20px;
   }
 }

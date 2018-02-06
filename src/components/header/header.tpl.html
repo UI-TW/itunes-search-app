@@ -12,7 +12,8 @@
       </li>
       <li class="menu__item {{#eq activeView 'login'}}active{{/eq}}">
         <a href="javascript:void(0);" id="loginLink" class="menu__link">
-          Login/Signup
+          <i class="material-icons">input</i>
+          <span class='icon-text'>Login/Signup</span>
         </a>
       </li>
       {{/if}}
@@ -25,20 +26,21 @@
       </li>
       <li class="menu__item">
         <a href="javascript:void(0);" id="logoutLink" class="menu__link">
-          Logout
+          <i class="material-icons">input</i>
+          <span class='icon-text'>Logout</span>
         </a>
       </li>
       {{/if}}
       <li class="menu__item {{#eq activeView 'search'}}active{{/eq}}">
         <a href="javascript:void(0);" id="searchLink" class="menu__link">
           <i class="material-icons">search</i>
-          Search
+          <span class='icon-text'>Search</span>
         </a>
       </li>
       <li class="menu__item {{#eq activeView 'favorites'}}active{{/eq}}">
         <a href="javascript:void(0);" id="favLink" class="menu__link">
           <i class="material-icons">favorite</i>
-          Upvotes
+          <span class='icon-text'>Upvotes</span>
         </a>
       </li>
     </ul>

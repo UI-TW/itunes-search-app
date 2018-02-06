@@ -11,7 +11,8 @@ class Header {
   }
 
   onClick(e) {
-    switch (e.target.id) {
+    const parentLink = e.target.closest('.menu__link');
+    switch (parentLink.id) {
       case 'appHeader':
       case 'searchLink':
         e.preventDefault();
