@@ -36,7 +36,7 @@ class App {
   }
 
   render() {
-    const appContainer = document.querySelector('#itunes-search');
+    let appContainer = document.querySelector('#itunes-search');
     appContainer.innerHTML = containerTemplate();
     new Header();
     if (state.activeView === 'search') {
