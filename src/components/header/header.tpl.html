@@ -1,40 +1,46 @@
 <div class="navbar-fixed">
-    <nav class="nav dark-primary-color">
-        <h1 id="appHeader" role="button" class="title u-pointer">Music finder</h1>
-        <div class="spacer"></div>
-        <ul class="menu">
-            {{#if isGuest}}
-            <li class="menu__item">
-                <a href="javascript:void(0);" class="menu__link">
-                    <i class="material-icons">person</i>
-                    {{email}}
-                </a>
-            </li>
-            <li class="menu__item">
-                <a href="javascript:void(0);" id="loginLink" class="menu__link">
-                    Login/Signup
-                </a>
-            </li>
-            {{/if}}
-            {{#if isLoggedIn}}
-            <li class="menu__item">
-                <a href="javascript:void(0);" class="menu__link">
-                    <i class="material-icons">person</i>
-                    {{email}}
-                </a>
-            </li>
-            <li class="menu__item">
-                <a href="javascript:void(0);" id="logoutLink" class="menu__link">
-                    Logout
-                </a>
-            </li>
-            {{/if}}
-            <li class="menu__item">
-                <a href="javascript:void(0);" id="favLink" class="menu__link">
-                    <i class="material-icons">favorite</i>
-                    Upvotes
-                </a>
-            </li>
-        </ul>
-    </nav>
+  <nav class="nav dark-primary-color">
+    <h1 id="appHeader" role="button" class="title u-pointer">Music finder</h1>
+    <div class="spacer"></div>
+    <ul class="menu">
+      {{#if isGuest}}
+      <li class="menu__item">
+        <a href="javascript:void(0);" class="menu__link user_info">
+          <i class="material-icons">person</i>
+          {{email}}
+        </a>
+      </li>
+      <li class="menu__item {{#eq activeView 'login'}}active{{/eq}}">
+        <a href="javascript:void(0);" id="loginLink" class="menu__link">
+          Login/Signup
+        </a>
+      </li>
+      {{/if}}
+      {{#if isLoggedIn}}
+      <li class="menu__item {{#eq activeView 'login'}}active{{/eq}}">
+        <a href="javascript:void(0);" class="menu__link user_info">
+          <i class="material-icons">person</i>
+          {{email}}
+        </a>
+      </li>
+      <li class="menu__item">
+        <a href="javascript:void(0);" id="logoutLink" class="menu__link">
+          Logout
+        </a>
+      </li>
+      {{/if}}
+      <li class="menu__item {{#eq activeView 'search'}}active{{/eq}}">
+        <a href="javascript:void(0);" id="searchLink" class="menu__link">
+          <i class="material-icons">search</i>
+          Search
+        </a>
+      </li>
+      <li class="menu__item {{#eq activeView 'favorites'}}active{{/eq}}">
+        <a href="javascript:void(0);" id="favLink" class="menu__link">
+          <i class="material-icons">favorite</i>
+          Upvotes
+        </a>
+      </li>
+    </ul>
+  </nav>
 </div>

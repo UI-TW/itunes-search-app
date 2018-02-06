@@ -1,5 +1,4 @@
 const path = require('path');
-const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
@@ -11,7 +10,7 @@ module.exports = {
   module: {
     rules: [{
       test: /\.tpl\.html$/,
-      loader: 'handlebars-loader'
+      loader: 'handlebars-template-loader'
     }, {
       test: /\.js$/,
       exclude: /node_modules/,
@@ -25,11 +24,11 @@ module.exports = {
         fallback: 'style-loader',
         use: [{
           loader: 'css-loader',
-          options: { minimize: true }
+          options: {minimize: true}
         },
-        {
-          loader: 'postcss-loader'
-        }
+          {
+            loader: 'postcss-loader'
+          }
         ]
       }))
     }, {
@@ -46,10 +45,5 @@ module.exports = {
       ]
     }]
   },
-  plugins: [new ExtractTextPlugin('[name].css')],
-  resolve: {
-    alias: {
-      handlebars: 'handlebars/dist/handlebars.min.js'
-    }
-  }
+  plugins: [new ExtractTextPlugin('[name].css')]
 };

@@ -1,3 +1,5 @@
+@import '../../style/palette.css';
+
 .nav {
   display: flex;
   align-items: center;
@@ -5,6 +7,12 @@
 
 .menu__link {
   padding: 2px;
+}
+
+.menu__item.active a,
+.menu__item.active:hover {
+  background: var(--text-primary-color);
+  color: var(--dark-primary-color);
 }
 
 .menu__link .material-icons{
@@ -19,6 +27,10 @@
 
 .spacer{
   flex: 1;
+}
+
+.user_info:hover {
+  background: var(--dark-primary-color);
 }
 
 @media only screen and (min-width: 360px) {
