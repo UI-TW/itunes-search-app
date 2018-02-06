@@ -10,6 +10,7 @@
 .upvote-page .card {
   display: flex;
   margin: 10px 0;
+  padding: 10px;
   background: #ffffff;
   justify-content: space-between;
 }
@@ -27,6 +28,18 @@
   background: #303F9F;
   color: #FFFFFF;
   padding: 0 5px;
+}
+
+.card-info__ranking {
+  flex-direction: column;
+}
+
+.upvote-page .card-image img {
+  width: 100%;
+  height: 100px;
+  top: 50%;
+  transform: translateY(-50%);
+  object-fit: fill;
 }
 
 .card-info__ranking  span {
