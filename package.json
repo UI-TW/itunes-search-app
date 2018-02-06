@@ -22,7 +22,6 @@
     "test": "yarn lint && yarn flow && yarn jest",
     "jest:update": "jest --u test/unit",
     "jest": "jest test/unit",
-    "flow": "flow",
     "clean": "rimraf dist/",
     "build": "webpack --config ./webpack/webpack.config.babel.js --progress --colors --define process.env.NODE_ENV='\"production\"'",
     "dev": "webpack-dev-server --config ./webpack/webpack.config.dev.js",
@@ -30,6 +29,11 @@
     "lint": "eslint src/** webpack/** test/**",
     "lint:fix": "npm run lint -- --fix",
     "start": "yarn dev"
+  },
+  "pre-commit": {
+    "run": [
+      "lint"
+    ]
   },
   "dependencies": {
     "autoprefixer": "^7.2.5",
