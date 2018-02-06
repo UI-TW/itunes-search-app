@@ -14,16 +14,19 @@ class Header {
     switch (e.target.id) {
       case 'appHeader':
         e.preventDefault();
+        state.status = 'init';
         state.activeView = 'search';
         emitter.emit('viewChange', state.activeView);
         break;
       case 'loginLink':
         e.preventDefault();
+        state.status = 'init';
         state.activeView = 'login';
         emitter.emit('viewChange', state.activeView);
         break;
       case 'favLink':
         e.preventDefault();
+        state.status = 'init';
         state.activeView = 'favorites';
         emitter.emit('viewChange', state.activeView);
         break;
@@ -31,6 +34,7 @@ class Header {
         e.preventDefault();
         removeAuthToken();
         removeUserName();
+        state.status = 'init';
         state.isLoggedIn = false;
         state.isGuest = true;
         state.email = 'Guest';
