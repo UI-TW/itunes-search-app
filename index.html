@@ -2,18 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Music finder</title>
+  <meta name="theme-color" content="#303f9f" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0">
+  <link rel="manifest" href="./manifest.json">
+
+  <title>Music finder</title>
+
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <link rel="stylesheet" href="dist/main.css">
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js" defer></script>
+  <script src="dist/bundle.js" defer="defer"></script>
+
 </head>
 <body>
   <section id="itunes-search"></section>
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-  <script src="dist/bundle.js"></script>
+
+  <!-- TODO: Change this to Message Component -->
+  <h2 id="initial-content">
+    <div class="toast">
+      <div class="sk-circle">
+        <div class="sk-circle1 sk-child" ></div>
+        <div class="sk-circle2 sk-child"></div>
+        <div class="sk-circle3 sk-child"></div>
+        <div class="sk-circle4 sk-child"></div>
+        <div class="sk-circle5 sk-child"></div>
+        <div class="sk-circle6 sk-child"></div>
+        <div class="sk-circle7 sk-child"></div>
+        <div class="sk-circle8 sk-child"></div>
+        <div class="sk-circle9 sk-child"></div>
+        <div class="sk-circle10 sk-child"></div>
+        <div class="sk-circle11 sk-child"></div>
+        <div class="sk-circle12 sk-child"></div>
+      </div>
+      <span class="text">Loading...</span>
+    </div>
+  </h2>
+
 </body>
 </html>
