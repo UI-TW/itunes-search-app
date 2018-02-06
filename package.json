@@ -24,7 +24,7 @@
     "jest": "jest test/unit",
     "clean": "rimraf dist/",
     "build": "webpack --config ./webpack/webpack.config.babel.js --progress --colors --define process.env.NODE_ENV='\"production\"'",
-    "dev": "webpack-dev-server --config ./webpack/webpack.config.dev.js",
+    "dev": "webpack-dev-server --config ./webpack/webpack.config.dev.js --port 3040",
     "deploy": "yarn clean && yarn build",
     "lint": "eslint src/** webpack/** test/**",
     "lint:fix": "npm run lint -- --fix",
