@@ -1,10 +1,11 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const htmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   output: {
-    publicPath: '/dist/',
+    publicPath: '/',
     path: path.resolve(__dirname, '../', 'dist/'),
     filename: 'bundle.js'
   },
@@ -48,13 +49,23 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin('[name].css'),
-    /* START: {Adding Service Worker} {3} out of {4} */
+    new htmlWebpackPlugin({
+      inject: true,
+      template: path.resolve(__dirname, '../', 'index.html')
+    }),
+
     new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, '../', 'images'),
+        to: path.resolve(__dirname, '../', 'dist/images')
+      },
+      /* START: {Adding Service Worker} {3} out of {4} */
       {
         from: path.resolve(__dirname, '../', 'PWA-sw.js'),
         to: path.resolve(__dirname, '../', 'dist')
       }
+      /* END: {Adding Service Worker} {3} out of {4} */
     ])
-    /* END: {Adding Service Worker} {3} out of {4} */
+
   ]
 };

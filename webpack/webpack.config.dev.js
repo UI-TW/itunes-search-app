@@ -13,7 +13,7 @@ webpackConfig.plugins.push(
   new webpack.NamedModulesPlugin()
 );
 webpackConfig.devServer = {
-  port: 3000,
+  port: 3040,
   hot: true,
   compress: false,
   historyApiFallback: true,
