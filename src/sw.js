@@ -33,4 +33,14 @@ workboxSW.router.registerRoute(/.*(?:cdnjs)(?:\.cloudflare)\.com*/,
     cacheableResponse: {statuses: [0, 200]}
   })
 );
+
+workboxSW.router.registerRoute(/.*\/api\/search*/,
+  workboxSW.strategies.cacheFirst({
+    cacheName: 'user',
+    cacheExpiration: {
+      maxEntries: 30
+    },
+    cacheableResponse: {statuses: [0, 200]}
+  })
+);
 <!-- END:  {Caching files} {1} out of {1} -->
