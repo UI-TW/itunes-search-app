@@ -36,10 +36,8 @@
     ]
   },
   "dependencies": {
-    "autoprefixer": "^7.2.5",
     "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.3",
-    "copy-webpack-plugin": "^4.3.1",
     "fecha": "^2.2.0",
     "handlebars": "^4.0.11"
   },
@@ -50,6 +48,7 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-stage-0": "^6.5.0",
     "css-loader": "^0.28.4",
+    "copy-webpack-plugin": "^4.3.1",
     "eslint": "^4.8.0",
     "eslint-config-airbnb": "^16.0.0",
     "eslint-plugin-import": "^2.7.0",
