@@ -51,7 +51,7 @@ module.exports = {
     new ExtractTextPlugin('[name].css'),
     new htmlWebpackPlugin({
       inject: true,
-      template: path.resolve(__dirname, '../', 'index.html')
+      template: path.resolve(__dirname, '../src', 'index.html')
     }),
 
     new CopyWebpackPlugin([
@@ -61,7 +61,7 @@ module.exports = {
       },
       /* START: {Adding Service Worker} {3} out of {4} */
       {
-        from: path.resolve(__dirname, '../', 'PWA-sw.js'),
+        from: path.resolve(__dirname, '../src', 'sw.js'),
         to: path.resolve(__dirname, '../', 'dist')
       }
       /* END: {Adding Service Worker} {3} out of {4} */
