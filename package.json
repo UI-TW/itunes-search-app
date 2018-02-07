@@ -28,7 +28,8 @@
     "deploy": "yarn run clean && yarn build",
     "lint": "eslint src/** webpack/** test/**",
     "lint:fix": "npm run lint -- --fix",
-    "start": "yarn dev"
+    "start": "yarn dev",
+    "build:pwa": "workbox inject:manifest"
   },
   "pre-commit": {
     "run": [

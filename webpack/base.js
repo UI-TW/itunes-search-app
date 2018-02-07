@@ -58,13 +58,7 @@ module.exports = {
       {
         from: path.resolve(__dirname, '../', 'images'),
         to: path.resolve(__dirname, '../', 'dist/images')
-      },
-      /* START: {Adding Service Worker} {3} out of {4} */
-      {
-        from: path.resolve(__dirname, '../src', 'sw.js'),
-        to: path.resolve(__dirname, '../', 'dist')
       }
-      /* END: {Adding Service Worker} {3} out of {4} */
     ])
 
   ]
