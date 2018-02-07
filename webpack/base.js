@@ -1,5 +1,6 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   output: {
@@ -45,5 +46,15 @@ module.exports = {
       ]
     }]
   },
-  plugins: [new ExtractTextPlugin('[name].css')]
+  plugins: [
+    new ExtractTextPlugin('[name].css'),
+    /* START: {Adding Service Worker} {3} out of {4} */
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, '../', 'PWA-sw.js'),
+        to: path.resolve(__dirname, '../', 'dist')
+      }
+    ])
+    /* END: {Adding Service Worker} {3} out of {4} */
+  ]
 };

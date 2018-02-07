@@ -39,8 +39,21 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <script src="dist/bundle.js"></script>
-<!-- START: {Adding Service Worker} {2} out of {2} -->
-<script src="./PWA-sw.js"></script>
-<!-- END: {Adding Service Worker } {2} out of {2} -->
+<!-- START: {Adding Service Worker} {2} out of {4} -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('/PWA-sw.js').then(function (registration) {
+        // Registration was successful
+        console.log('%c ServiceWorker registration successful', 'color: #00ab07');
+      }, function (err) {
+        // registration failed :(
+        console.log('%c ServiceWorker registration failed', 'color: #ca0d2c');
+        console.log(err)
+      });
+    });
+  }
+</script>
+<!-- END: {Adding Service Worker } {2} out of {4} -->
 </body>
 </html>
