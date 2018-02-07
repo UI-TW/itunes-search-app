@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Music finder</title>
-  <!-- PWA stuffs -->
+  <!-- START: {Adding Manifest file} {1} out of {1} -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0">
   <link rel="manifest" href="./manifest.json">
   <link rel="apple-touch-icon" sizes="180x180" href="./images/icons/apple-touch-icon.png">
@@ -12,6 +12,7 @@
   <link rel="mask-icon" href="./images/icons/safari-pinned-tab.svg" color="#5bbad5">
   <meta name="msapplication-TileColor" content="#2b5797">
   <meta name="theme-color" content="#303f9f">
+  <!-- END: {Adding Manifest file} {1} out of {1} -->
 
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -20,17 +21,20 @@
   <link rel="stylesheet" href="dist/main.css">
 </head>
 <body>
+    <!-- START: {Adding noscript } {1} out of {1} -->
     <noscript >
-        <div class="container">
-          <div class="card-panel blue lighten-2">
-            <h5 class="header">JavaScript Required</h5>
-            <hr />
-            <p>
-              We're sorry, but our application doesn't work properly without JavaScript enabled.
-            </p>
-          </div>
+      <div class="container">
+        <div class="card-panel blue lighten-2">
+          <h5 class="header">JavaScript Required</h5>
+          <hr />
+          <p>
+            We're sorry, but our application doesn't work properly without JavaScript enabled.
+          </p>
         </div>
-      </noscript>
+      </div>
+    </noscript>
+    <!-- END: {Adding noscript } {1} out of {1} -->
+
   <section id="itunes-search"></section>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
