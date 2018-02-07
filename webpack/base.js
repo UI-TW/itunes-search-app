@@ -50,7 +50,7 @@ module.exports = {
     new ExtractTextPlugin('[name].css'),
     new htmlWebpackPlugin({
       inject: true,
-      template: path.resolve(__dirname, '../', 'index.html')
+      template: path.resolve(__dirname, '../src', 'index.html')
     })
   ]
 };
