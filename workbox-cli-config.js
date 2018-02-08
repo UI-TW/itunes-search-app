@@ -4,7 +4,7 @@ module.exports = {
     "**/*.{js,html,css}"
   ],
   "swSrc": "src/sw.js",
-  "swDest": "dist/sw.js",
+  "swDest": "src/generated-sw.js",
   "globIgnores": [
     "../workbox-cli-config.js"
   ]

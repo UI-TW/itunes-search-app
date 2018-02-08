@@ -2,6 +2,7 @@
 node_modules
 coverage
 dist
+src/generated-sw.js
 .DS_Store
 npm-debug.log
 *.iml
