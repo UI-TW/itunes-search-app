@@ -7,11 +7,31 @@ workboxSW.precache([]);
 <!-- START: {Adding Service Worker} {1} out of {3} -->
 self.addEventListener('install', function (event) {
   console.log('%c ServiceWorker install method', 'color: #FF5722');
+  event.waitUntil(self.skipWaiting());
 });
 
 self.addEventListener('activate', event => {
   console.log('%c ServiceWorker activate method', 'color: #CDDC39');
+  event.waitUntil(self.clients.claim()); 
 });
+
+<!-- START: {Adding Sync} {1} out of {2} -->
+self.addEventListener('message', function(event){
+  console.log("SW Received Message: " + event.data);
+  console.log('new update');
+  if(event.data.name === 'upvote') {
+    self.upvoteUrl = event.data.url;
+    self.upvoteRequestItem = event.data.requestItem;
+  }
+});
+
+self.addEventListener('sync', event => {
+  if (event.tag == 'upvoteSync') {
+    event.waitUntil(fetch(self.upvoteUrl, self.upvoteRequestItem));
+  }
+});
+<!-- END: {Adding Sync} {1} out of {2} -->
+
 <!-- END: {Adding Service Worker} {1} out of {3} -->
 
 <!-- START: {Caching files} {1} out of {1} -->

@@ -14,15 +14,31 @@ const attachEventListeners = () => {
       const collectionId = e.target.querySelector('input[type="hidden"]').value;
       const collection = state.data.results.find(item =>
         item.collectionId === parseInt(collectionId, 10));
-      fetch(apiSettings.upvote, {
-        method: 'POST',
-        body: JSON.stringify(collection),
-        headers: new Headers({
-          'Content-Type': 'application/json',
-          authorization: getAuthToken()
-        })
-      })
-        .then(res => res.json());
+        const requestItem = {
+          method: 'POST',
+          body: JSON.stringify(collection),
+          headers: new Headers({
+            'Content-Type': 'application/json',
+            authorization: getAuthToken()
+          })
+        };
+        //START: {Adding Sync} {2} out of {2}
+        if ('serviceWorker' in navigator && 'SyncManager' in window) {
+          navigator.serviceWorker.ready.then(function(reg) {
+            navigator.serviceWorker.controller.postMessage([{
+              eventName: 'upvote',
+              url: apiSettings.upvote,
+              requestItem: requestItem
+            }]);
+            return reg.sync.register('upvoteSync');
+          }).catch(function() {
+            fetch(apiSettings.upvote, requestItem);
+          });
+        }
+        else {
+          fetch(apiSettings.upvote, requestItem);
+        }
+        //END: {Adding Sync} {2} out of {2}
     }
   });
 };
