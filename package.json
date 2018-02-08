@@ -31,8 +31,8 @@
     "watch": "npm-watch",
     "build:pwa": "workbox inject:manifest",
     "deploy:pwa": "npm run deploy && npm run build:pwa",
-    "start:prod": "http-server ./dist -p 3040",
-    "start": "concurrently \"npm run watch\" \"npm run start:prod\""
+    "serve:dist": "http-server ./dist -p 3040",
+    "start": "concurrently \"npm run watch\" \"npm run serve:dist\""
   },
   "watch": {
     "deploy:pwa": {

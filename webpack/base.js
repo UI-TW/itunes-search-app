@@ -65,13 +65,8 @@ module.exports = {
       {
         from: path.resolve(__dirname, '../', 'manifest.json'),
         to: path.resolve(__dirname, '../', 'dist')
-      },
-       /*  END: {Adding Manifest file} {2} out of {2} */
-      /* START: {Adding Service Worker} {3} out of {4} */
-      {
-        from: path.resolve(__dirname, '../', 'sw.js'),
-        to: path.resolve(__dirname, '../', 'dist')
       }
+       /*  END: {Adding Manifest file} {2} out of {2} */
     ])
 
   ]
