@@ -18,7 +18,7 @@ self.addEventListener('activate', event => {
 <!-- START: {Adding Sync} {1} out of {2} -->
 self.addEventListener('message', function(event){
   console.log("SW Received Message: " + event.data);
-  if(event.data[0].name === 'upvote') {
+  if(event.data[0].eventName === 'upvote') {
     self.upvoteUrl = event.data[0].url;
     self.upvoteRequestItem = event.data[0].requestItem;
   }
@@ -26,7 +26,12 @@ self.addEventListener('message', function(event){
 
 self.addEventListener('sync', event => {
   if (event.tag == 'upvoteSync') {
-    event.waitUntil(fetch(self.upvoteUrl, self.upvoteRequestItem));
+    event.waitUntil(
+      fetch(self.upvoteUrl, self.upvoteRequestItem)
+      .then(res => res.json())
+      .then(res => console.log)
+      .catch(e => console.log)
+    );
   }
 });
 <!-- END: {Adding Sync} {1} out of {2} -->
