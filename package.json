@@ -23,12 +23,12 @@
     "jest:update": "jest --u test/unit",
     "jest": "jest test/unit",
     "clean": "rimraf dist/",
-    "build": "yarn run build:pwa && webpack --config ./webpack/webpack.config.prod.js --progress --colors --define process.env.NODE_ENV='\"production\"'",
-    "dev": "yarn run build:pwa && webpack-dev-server --progress --color --config ./webpack/webpack.config.dev.js",
+    "build": "webpack --config ./webpack/webpack.config.prod.js --progress --colors --define process.env.NODE_ENV='\"production\"'",
+    "dev": "webpack-dev-server --progress --color --config ./webpack/webpack.config.dev.js",
     "deploy": "yarn run clean && yarn build",
     "lint": "eslint src/** webpack/** test/**",
     "lint:fix": "npm run lint -- --fix",
-    "start": "yarn dev",
+    "start": "yarn run clean && yarn dev",
     "build:pwa": "workbox inject:manifest"
   },
   "pre-commit": {
@@ -40,7 +40,8 @@
     "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.3",
     "fecha": "^2.2.0",
-    "handlebars": "^4.0.11"
+    "handlebars": "^4.0.11",
+    "write-file-webpack-plugin": "^4.2.0"
   },
   "devDependencies": {
     "babel-core": "^6.7.2",
@@ -48,8 +49,8 @@
     "babel-loader": "^7.0.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-stage-0": "^6.5.0",
-    "css-loader": "^0.28.4",
     "copy-webpack-plugin": "^4.3.1",
+    "css-loader": "^0.28.4",
     "eslint": "^4.8.0",
     "eslint-config-airbnb": "^16.0.0",
     "eslint-plugin-import": "^2.7.0",
