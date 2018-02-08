@@ -18,10 +18,9 @@ self.addEventListener('activate', event => {
 <!-- START: {Adding Sync} {1} out of {2} -->
 self.addEventListener('message', function(event){
   console.log("SW Received Message: " + event.data);
-  console.log('new update');
-  if(event.data.name === 'upvote') {
-    self.upvoteUrl = event.data.url;
-    self.upvoteRequestItem = event.data.requestItem;
+  if(event.data[0].name === 'upvote') {
+    self.upvoteUrl = event.data[0].url;
+    self.upvoteRequestItem = event.data[0].requestItem;
   }
 });
 
