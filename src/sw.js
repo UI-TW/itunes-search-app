@@ -12,8 +12,9 @@ self.addEventListener('install', function (event) {
 
 self.addEventListener('activate', event => {
   console.log('%c ServiceWorker activate method', 'color: #CDDC39');
-  event.waitUntil(self.clients.claim()); 
+  event.waitUntil(self.clients.claim());
 });
+<!-- END: {Adding Service Worker} {1} out of {3} -->
 
 <!-- START: {Adding Sync} {1} out of {2} -->
 self.addEventListener('message', function(event){
@@ -36,7 +37,6 @@ self.addEventListener('sync', event => {
 });
 <!-- END: {Adding Sync} {1} out of {2} -->
 
-<!-- END: {Adding Service Worker} {1} out of {3} -->
 
 <!-- START: {Caching files} {1} out of {1} -->
 workboxSW.router.registerRoute(/.*(?:googleapis|gstatic)\.com.*$/,
@@ -68,3 +68,20 @@ workboxSW.router.registerRoute(/.*\/api\/search*/,
   })
 );
 <!-- END:  {Caching files} {1} out of {1} -->
+
+<!-- START: {Add to homescreen banner } {1} out of {1} -->
+self.addEventListener('beforeinstallprompt', function(e) {
+  console.log('%c beforeinstallprompt Event fired', 'color: #ff00ff', e.platforms);
+  e.userChoice.then(function(choiceResult) {
+
+    console.log(choiceResult.outcome);
+
+    if(choiceResult.outcome == 'dismissed') {
+      console.log('%c User cancelled home screen install', 'color: #FF5722');
+    }
+    else {
+      console.log('%c User added to home screen', 'color: #00ff00');
+    }
+  });
+});
+<!-- END: {Add to homescreen banner } {1} out of {1} -->
