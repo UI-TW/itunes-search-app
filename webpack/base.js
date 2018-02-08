@@ -6,7 +6,7 @@ const htmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   devtool: 'eval',
   output: {
-    publicPath: '/',
+    publicPath: './',
     path: path.resolve(__dirname, '../', 'dist/'),
     filename: 'bundle.js'
   },
@@ -58,12 +58,12 @@ module.exports = {
 
     new CopyWebpackPlugin([
       {
-        from: path.resolve(__dirname, '../', 'images'),
+        from: path.resolve(__dirname, '../', 'src/images'),
         to: path.resolve(__dirname, '../', 'dist/images')
       },
       /*  START: {Adding Manifest file} {2} out of {2} */
       {
-        from: path.resolve(__dirname, '../', 'manifest.json'),
+        from: path.resolve(__dirname, '../', 'src/manifest.json'),
         to: path.resolve(__dirname, '../', 'dist')
       },
        /*  END: {Adding Manifest file} {2} out of {2} */
