@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const webpackConfig = require('./base');
-const WriteFilePlugin = require('write-file-webpack-plugin');
 
 webpackConfig.devtool = 'cheap-module-eval-source-map';
 webpackConfig.entry = [
@@ -11,8 +10,7 @@ webpackConfig.entry = [
 ];
 webpackConfig.plugins.push(
   new webpack.HotModuleReplacementPlugin(),
-  new webpack.NamedModulesPlugin(),
-  new WriteFilePlugin()
+  new webpack.NamedModulesPlugin()
 );
 webpackConfig.devServer = {
   port: 3040,
