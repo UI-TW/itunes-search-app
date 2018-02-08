@@ -65,8 +65,12 @@ module.exports = {
       {
         from: path.resolve(__dirname, '../', 'manifest.json'),
         to: path.resolve(__dirname, '../', 'dist')
-      }
+      },
        /*  END: {Adding Manifest file} {2} out of {2} */
+      {
+        from: path.resolve(__dirname, '../', 'node_modules/workbox-sw/build/importScripts/workbox-sw.prod.v2.1.2.js'),
+        to: path.resolve(__dirname, '../', 'dist/')
+      }
     ])
 
   ]
