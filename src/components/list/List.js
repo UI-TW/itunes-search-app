@@ -17,10 +17,10 @@ const attachEventListeners = () => {
         const requestItem = {
           method: 'POST',
           body: JSON.stringify(collection),
-          headers: new Headers({
+          headers: {
             'Content-Type': 'application/json',
-            authorization: getAuthToken()
-          })
+            'authorization': getAuthToken()
+          }
         };
         //START: {Adding Sync} {2} out of {2}
         if ('serviceWorker' in navigator && 'SyncManager' in window) {

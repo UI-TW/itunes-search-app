@@ -14,8 +14,8 @@ webpackConfig.plugins.push(new webpack.optimize.UglifyJsPlugin({
 }),
 new CopyWebpackPlugin([
   {
-    from: path.resolve(__dirname, '../', 'src/generated-sw.js'),
-    to: path.resolve(__dirname, '../', 'dist/generated-sw.js')
+    from: path.resolve(__dirname, '../', 'sw.js'),
+    to: path.resolve(__dirname, '../', 'dist/sw.js')
   }
 ])
 );
