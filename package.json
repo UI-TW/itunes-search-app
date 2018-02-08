@@ -19,27 +19,28 @@
   "scripts": {
     "coverage": "jest --coverage",
     "jest:watch": "jest --watch",
-    "test": "yarn jest",
+    "test": "npm jest",
     "jest:update": "jest --u test/unit",
     "jest": "jest test/unit",
-    "clean": "rimraf dist/",
+    "clean": "rimraf dist/*",
     "build": "webpack --config ./webpack/webpack.config.prod.js --progress --colors --define process.env.NODE_ENV='\"production\"'",
     "dev": "webpack-dev-server --progress --color --config ./webpack/webpack.config.dev.js",
-    "deploy": "yarn run clean && yarn build",
+    "deploy": "npm run clean && npm run build",
     "lint": "eslint src/** webpack/** test/**",
-    "lint:fix": "npm run lint -- --fix",
-    "start": "yarn run clean && yarn dev",
+    "lint:fix": "npm run lint -- --fix",    
     "watch": "npm-watch",
     "build:pwa": "workbox inject:manifest",
-    "start:pwa": "concurrently \"yarn run start\" \"yarn run watch\""
+    "deploy:pwa": "npm run deploy && npm run build:pwa",
+    "start:prod": "http-server ./dist -p 3040",
+    "start": "concurrently \"npm run watch\" \"npm run start:prod\""
   },
   "watch": {
-    "build:pwa": {
+    "deploy:pwa": {
       "patterns": [
-        "dist"
+        "src"
       ],
       "extensions": "js,html,css",
-      "quiet": false
+      "quiet": true
     }
   },
   "pre-commit": {

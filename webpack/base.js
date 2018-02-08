@@ -4,6 +4,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  devtool: 'eval',
   output: {
     publicPath: '/',
     path: path.resolve(__dirname, '../', 'dist/'),
@@ -51,6 +52,7 @@ module.exports = {
     new ExtractTextPlugin('[name].css'),
     new htmlWebpackPlugin({
       inject: true,
+      filename: path.resolve(__dirname, '../dist', 'index.html'),
       template: path.resolve(__dirname, '../src', 'index.html')
     }),
 
