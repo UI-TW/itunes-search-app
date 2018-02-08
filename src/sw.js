@@ -1,10 +1,10 @@
-<!-- START: {Adding Service Worker} {3} out of {3} -->
+// <!-- START: {Adding Service Worker} {3} out of {3} -->
 importScripts('workbox-sw.prod.v2.1.2.js');
 const workboxSW = new WorkboxSW();
 workboxSW.precache([]);
-<!-- END: {Adding Service Worker} {3} out of {3} -->
+// <!-- END: {Adding Service Worker} {3} out of {3} -->
 
-<!-- START: {Adding Service Worker} {1} out of {3} -->
+// <!-- START: {Adding Service Worker} {1} out of {3} -->
 self.addEventListener('install', function (event) {
   console.log('%c ServiceWorker install method', 'color: #FF5722');
   event.waitUntil(self.skipWaiting());
@@ -14,9 +14,9 @@ self.addEventListener('activate', event => {
   console.log('%c ServiceWorker activate method', 'color: #CDDC39');
   event.waitUntil(self.clients.claim());
 });
-<!-- END: {Adding Service Worker} {1} out of {3} -->
+// <!-- END: {Adding Service Worker} {1} out of {3} -->
 
-<!-- START: {Adding Sync} {1} out of {2} -->
+// <!-- START: {Adding Sync} {1} out of {2} -->
 self.addEventListener('message', function(event){
   console.log("SW Received Message: " + event.data);
   if(event.data[0].eventName === 'upvote') {
@@ -35,10 +35,10 @@ self.addEventListener('sync', event => {
     );
   }
 });
-<!-- END: {Adding Sync} {1} out of {2} -->
+// <!-- END: {Adding Sync} {1} out of {2} -->
 
 
-<!-- START: {Caching files} {1} out of {1} -->
+// <!-- START: {Caching files} {1} out of {1} -->
 workboxSW.router.registerRoute(/.*(?:googleapis|gstatic)\.com.*$/,
   workboxSW.strategies.cacheFirst({
     cacheName: 'googleapis',
@@ -67,9 +67,9 @@ workboxSW.router.registerRoute(/.*\/api\/search*/,
     cacheableResponse: {statuses: [0, 200]}
   })
 );
-<!-- END:  {Caching files} {1} out of {1} -->
+// <!-- END:  {Caching files} {1} out of {1} -->
 
-<!-- START: {Add to homescreen banner } {1} out of {1} -->
+// <!-- START: {Add to homescreen banner } {1} out of {1} -->
 self.addEventListener('beforeinstallprompt', function(e) {
   console.log('%c beforeinstallprompt Event fired', 'color: #ff00ff', e.platforms);
   e.userChoice.then(function(choiceResult) {
@@ -84,4 +84,8 @@ self.addEventListener('beforeinstallprompt', function(e) {
     }
   });
 });
-<!-- END: {Add to homescreen banner } {1} out of {1} -->
+// <!-- END: {Add to homescreen banner } {1} out of {1} -->
+
+
+
+
