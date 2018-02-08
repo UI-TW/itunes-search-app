@@ -1,5 +1,5 @@
 <!-- START: {Adding Service Worker} {3} out of {3} -->
-importScripts('workbox-sw.prod.v2.1.2.min.js');
+importScripts('workbox-sw.prod.v2.1.2.js');
 const workboxSW = new WorkboxSW();
 workboxSW.precache([]);
 <!-- END: {Adding Service Worker} {3} out of {3} -->
