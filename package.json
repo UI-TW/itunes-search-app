@@ -29,7 +29,18 @@
     "lint": "eslint src/** webpack/** test/**",
     "lint:fix": "npm run lint -- --fix",
     "start": "yarn run clean && yarn dev",
-    "build:pwa": "workbox inject:manifest"
+    "watch": "npm-watch",
+    "build:pwa": "workbox inject:manifest",
+    "start:pwa": "concurrently \"yarn run start\" \"yarn run watch\""
+  },
+  "watch": {
+    "build:pwa": {
+      "patterns": [
+        "dist"
+      ],
+      "extensions": "js,html,css",
+      "quiet": false
+    }
   },
   "pre-commit": {
     "run": [
@@ -41,6 +52,7 @@
     "classnames": "^2.2.3",
     "fecha": "^2.2.0",
     "handlebars": "^4.0.11",
+    "npm-watch": "^0.3.0",
     "write-file-webpack-plugin": "^4.2.0"
   },
   "devDependencies": {
@@ -49,6 +61,7 @@
     "babel-loader": "^7.0.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-stage-0": "^6.5.0",
+    "concurrently": "^3.5.1",
     "copy-webpack-plugin": "^4.3.1",
     "css-loader": "^0.28.4",
     "eslint": "^4.8.0",
