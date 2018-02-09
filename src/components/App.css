@@ -8,3 +8,24 @@ html {
 body {
   background: #eee;
 }
+
+#online-status,
+#online-status.online {
+  height: 0;
+  opacity: 0;
+  padding: 0;
+  transition: all 0.5s;
+}
+#online-status.online {
+  background: #080;
+}
+#online-status.offline {
+  padding: 10px;
+  background: #c00;
+  opacity: 1;
+  height: auto;
+}
+
+#online-status .row {
+  margin-bottom: 0
+}

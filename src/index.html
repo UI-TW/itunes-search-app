@@ -33,7 +33,7 @@
   </div>
 </noscript>
 <!-- END: {Adding noscript } {1} out of {1} -->
-
+<div id="online-status" class="white-text red accent-3"></div>
 <section id="itunes-search"></section>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
@@ -53,5 +53,20 @@
   }
 </script>
 <!-- END: {Adding Service Worker } {2} out of {4} -->
+<script>
+  window.addEventListener('load', function() {
+
+    function updateOnlineStatus(event) {
+      var status = (navigator.onLine) ? "online" : "offline";
+      var message = (navigator.onLine) ? "" : "<div class='row'><div class='col sm12 white-text'>You are offline. Your work would get synced once you are online</div></div>";
+      document.querySelector('#online-status').className = status;
+      document.querySelector('#online-status').innerHTML = message;
+    }
+
+    window.addEventListener('online', updateOnlineStatus);
+    window.addEventListener('offline', updateOnlineStatus);
+    updateOnlineStatus();
+  });
+</script>
 </body>
 </html>
