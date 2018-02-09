@@ -12,7 +12,7 @@ class Header {
   }
 
   onClick(e) {
-    let parentLink; 
+    let parentLink;
     if(e.target.id === 'appHeader'){
       parentLink = e.target;
     }else{
@@ -44,12 +44,11 @@ class Header {
         removeUserName();
         state.status = 'init';
         state.isLoggedIn = false;
-        state.isGuest = true;
         state.email = 'Guest';
         state.activeView = 'search';
         emitter.emit('viewChange', state.activeView);
         this.render();
-        break;      
+        break;
       default:
     }
   }
