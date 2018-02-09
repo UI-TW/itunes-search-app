@@ -1,9 +1,7 @@
 import './Header.css';
 import headerTemplate from './header.tpl.html';
 import state from '../../state';
-import emitter from '../../emitter';
-import apiSettings from '../../urlConfig';
-import { removeAuthToken, removeUserName, getVapidKey } from '../../utils/storageUtils';
+import {removeAuthToken, removeUserName, getUserName} from '../../utils/storageUtils';
 
 
 class Header {
@@ -13,9 +11,9 @@ class Header {
 
   onClick(e) {
     let parentLink;
-    if(e.target.id === 'appHeader'){
+    if (e.target.id === 'appHeader') {
       parentLink = e.target;
-    }else{
+    } else {
       parentLink = e.target.closest('.menu__link')
     }
     switch (parentLink.id) {
@@ -55,7 +53,11 @@ class Header {
   }
 
   render() {
-    const html = headerTemplate(state);
+    const userName = getUserName();
+    const html = headerTemplate({
+      isLoggedIn: !!userName,
+      email: userName || 'Guest'
+    });
     document.querySelector('#container #header').innerHTML = html;
     this.attachEventListeners();
   }
