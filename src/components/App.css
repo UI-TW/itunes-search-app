@@ -1,10 +1,14 @@
 @import '../style/utils.css';
+@import '../style/palette.css';
+
 html {
   box-sizing: border-box;
 }
-*, *::before, *::after  {
+
+*, *::before, *::after {
   box-sizing: inherit;
 }
+
 body {
   background: #eee;
 }
@@ -16,9 +20,11 @@ body {
   padding: 0;
   transition: all 0.5s;
 }
+
 #online-status.online {
   background: #080;
 }
+
 #online-status.offline {
   padding: 10px;
   background: #c00;
@@ -28,4 +34,15 @@ body {
 
 #online-status .row {
   margin-bottom: 0
+}
+
+#subscribeLink {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+#subscribeLink:hover,
+#subscribeLink:focus {
+  background: var(--default-primary-color);
 }
