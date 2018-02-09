@@ -12,7 +12,12 @@ class Header {
   }
 
   onClick(e) {
-    const parentLink = e.target.closest('.menu__link');
+    let parentLink; 
+    if(e.target.id === 'appHeader'){
+      parentLink = e.target;
+    }else{
+      parentLink = e.target.closest('.menu__link')
+    }
     switch (parentLink.id) {
       case 'appHeader':
       case 'searchLink':
@@ -44,38 +49,7 @@ class Header {
         state.activeView = 'search';
         emitter.emit('viewChange', state.activeView);
         this.render();
-        break;
-      //START: {Adding Push} {3} out of {5}
-      case 'subscribeLink':
-        e.preventDefault();
-        navigator.serviceWorker.ready.then(function(reg) {
-          const vapidKey = getVapidKey();
-          console.log(vapidKey);
-          reg.pushManager.subscribe({
-            userVisibleOnly: true,
-            applicationServerKey: vapidKey
-          })
-          .then((subscription) => {
-            fetch(apiSettings.subscribe, {
-              method: 'POST',
-              body: JSON.stringify({
-                subscription: subscription
-              }),
-              headers: new Headers({
-                'Content-Type': 'application/json'
-              })
-            });
-          })
-          .catch((err) => {
-            if (Notification.permission === 'denied') {
-              console.warn('Permission for notifications was denied');
-            } else {
-              console.error('Failed to subscribe the user: ', err);
-            }
-          });
-        });
-        break;
-      //END: {Adding Push} {3} out of {5}
+        break;      
       default:
     }
   }
