@@ -2,7 +2,7 @@
 
 .list-wrapper {
     display: grid;
-    grid-template-columns: repeat(2, 46vw);
+    grid-template-columns: 96%;
     grid-gap: 2% 4%;
     padding: 20px 4%;
     justify-content: center;
@@ -68,7 +68,7 @@
 
 @media only screen and (min-width: 640px) {
     .list-wrapper {
-        grid-template-columns: repeat(2, 49vw);
+        grid-template-columns: repeat(2, 46vw);
         grid-gap: 2%;
     }
 }
