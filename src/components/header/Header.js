@@ -2,7 +2,8 @@ import './Header.css';
 import headerTemplate from './header.tpl.html';
 import state from '../../state';
 import emitter from '../../emitter';
-import { removeAuthToken, removeUserName } from '../../utils/storageUtils';
+import apiSettings from '../../urlConfig';
+import { removeAuthToken, removeUserName, getVapidKey } from '../../utils/storageUtils';
 
 
 class Header {
@@ -44,6 +45,34 @@ class Header {
         emitter.emit('viewChange', state.activeView);
         this.render();
         break;
+      //START: {Adding Push} {3} out of {5}
+      case 'subscribeLink':
+        e.preventDefault();
+        navigator.serviceWorker.ready.then(function(reg) {
+          const vapidKey = getVapidKey();
+          console.log(vapidKey);
+          reg.pushManager.subscribe({
+            userVisibleOnly: true,
+            applicationServerKey: vapidKey
+          })
+          .then((subscription) => {
+            fetch(apiSettings.subscribe, {
+              method: 'POST',
+              body: JSON.stringify({
+                subscription
+              })
+            });
+          })
+          .catch((err) => {
+            if (Notification.permission === 'denied') {
+              console.warn('Permission for notifications was denied');
+            } else {
+              console.error('Failed to subscribe the user: ', err);
+            }
+          });
+        });
+        break;
+      //END: {Adding Push} {3} out of {5}
       default:
     }
   }

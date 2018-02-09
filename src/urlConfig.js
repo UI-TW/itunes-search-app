@@ -6,5 +6,9 @@ const apiSettings = {
   signup: `${baseUrl}/accounts/signup`,
   upvote: `${baseUrl}/upvote`,
   search: `${baseUrl}/search`,
+  //START: {Adding Push} {2} out of {5}
+  getVapidKey: `${baseUrl}/getvapidkey`,
+  subscribe: `${baseUrl}/subscribe`
+  //END: {Adding Push} {2} out of {5}
 };
 export default apiSettings;
