@@ -23,14 +23,15 @@ const msgMap = {
 
 class Message {
   render() {
-    document.querySelector('#search_result').innerHTML = messageTemplate({
-      showMessage: state.status !== 'init',
-      status: state.status,
-      isLoading: state.status === 'loading',
-      isCompleted: state.status !== 'loading',
-      statusIcon: msgMap[state.status].icon,
-      statusText: msgMap[state.status].msg
-    });
+    if (state.status !== 'init') {
+      document.querySelector('#search_result').innerHTML = messageTemplate({
+        status: state.status,
+        isLoading: state.status === 'loading',
+        isCompleted: state.status !== 'loading',
+        statusIcon: msgMap[state.status].icon,
+        statusText: msgMap[state.status].msg
+      });
+    }
   }
 }
 
