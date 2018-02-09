@@ -6,19 +6,19 @@ workboxSW.precache([]);
 
 // <!-- START: {Adding Service Worker} {1} out of {3} -->
 self.addEventListener('install', function (event) {
-  console.log('%c ServiceWorker install method', 'color: #FF5722');
+  console.log('%c ServiceWorker installation successful', 'color: #FF00ff');
   event.waitUntil(self.skipWaiting());
 });
 
 self.addEventListener('activate', event => {
-  console.log('%c ServiceWorker activate method', 'color: #CDDC39');
+  console.log('%c ServiceWorker activation successful', 'color: #CDDC39');
   event.waitUntil(self.clients.claim());
 });
 // <!-- END: {Adding Service Worker} {1} out of {3} -->
 
 // <!-- START: {Adding Sync} {1} out of {2} -->
-self.addEventListener('message', function(event){
-  console.log("SW Received Message: " + event.data);
+self.addEventListener('message', function(event) {
+  console.log("SW Received Message", event.data[0]);
   if(event.data[0].eventName === 'upvote') {
     self.upvoteUrl = event.data[0].url;
     self.upvoteRequestItem = event.data[0].requestItem;
@@ -86,33 +86,79 @@ self.addEventListener('beforeinstallprompt', function(e) {
 });
 // <!-- END: {Add to homescreen banner } {1} out of {1} -->
 // <!-- START: {Push } {1} out of {1} -->
-self.addEventListener('push', function(e) {
-  var body;
+self.addEventListener('push', function(event) {
+  let body = '';
 
-  if (e.data) {
-    body = e.data.text();
-  } else {
-    body = 'Default body';
+  if (event.data) {
+    body = event.data.text();
+    try {
+        const {userID, favorite} = JSON.parse(body)
+        body = `${userID} has upvoted ${favorite.collectionName}`;
+        self.collectionName = favorite.collectionName
+        self.artworkUrl = favorite.artworkUrl;
+        self.collectionViewUrl = favorite.collectionViewUrl
+    } catch(err) {
+      console.log('Error while parsing JSON string', err)
+    }
+
   }
 
   var options = {
     body: body,
-    icon: 'images/notification-flat.png',
+    image: self.artworkUrl,
+    icon: 'images/icons/favicon-32x32.png',
+    badge: 'images/icons/favicon-32x32.png',
     vibrate: [100, 50, 100],
     data: {
       dateOfArrival: Date.now(),
       primaryKey: 1
     },
     actions: [
-      {action: 'explore', title: 'Music Finder',
-        icon: 'images/checkmark.png'},
-      {action: 'close', title: 'Close the notification',
-        icon: 'images/xmark.png'},
+      { action: 'explore',
+        title: 'Explore this collection!',
+        icon: self.artworkUrl}
     ]
   };
 
-  e.waitUntil(
-    self.registration.showNotification('Push Notification', options)
+  event.waitUntil(
+    self.registration.showNotification('Music Finder', options)
+  );
+});
+
+self.addEventListener('notificationclick', function(event) {
+
+  const siteUrl = (event.target && event.target.origin) + "/"
+
+  console.log('[Service Worker] Notification click Received.');
+  //Listen to custom action buttons in push notification
+  if (event.action === 'explore') {
+    console.log(`I ♥ this collection! : ${self.collectionName}`);
+    clients.openWindow(self.collectionViewUrl);
+  }
+
+  // event.notification.close(); //Close the notification
+
+  //To open the app after clicking notification
+  event.waitUntil(
+    clients.matchAll({"type":"window"})
+    .then((clients) => {
+      let found = false;
+      for (i = 0; i < clients.length; i++) {
+        if (clients[i].url === siteUrl) {
+          // We already have a window to use, focus it.
+          found = true;
+          clients[i].focus();
+          break;
+        }
+      }
+      if (!found) {
+        // Create a new window.
+        clients.openWindow(siteUrl)
+        .then((windowClient) => {
+          // do something with the windowClient.
+        })
+      }
+    })
   );
 });
 // <!-- END: {Push } {1} out of {1} -->

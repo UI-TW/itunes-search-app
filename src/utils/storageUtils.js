@@ -26,7 +26,6 @@ export const getVapidKey = () => {
   if (sessionStorage.getItem('vapidKey')){
     const key = JSON.parse(sessionStorage.getItem('vapidKey'));
     const vapidKeyBuffer = urlB64ToUint8Array(key);
-    console.log(vapidKeyBuffer);
     return vapidKeyBuffer;
   }
 };

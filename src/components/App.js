@@ -40,7 +40,6 @@ class App {
     }
     navigator.serviceWorker.ready.then(function(reg) {
       const vapidKey = getVapidKey();
-      console.log(vapidKey);
       reg.pushManager.subscribe({
         userVisibleOnly: true,
         applicationServerKey: vapidKey
@@ -55,6 +54,13 @@ class App {
             headers: new Headers({
               'Content-Type': 'application/json'
             })
+          })
+          .then((resp) => {
+            if(resp.ok)
+              console.log('%c Push notification subscription successful', 'color: #00ffff');
+          })
+          .catch((err) => {
+            console.log('Error on subcription', err);
           });
         })
         .catch((err) => {

@@ -7,8 +7,7 @@ new App().render();
 const getVapidKey = async () => {
     const resp = await fetch(apiSettings.getVapidKey);
     const json = await resp.json();
-    console.log(json);
-    setVapidKey(json.key);    
+    setVapidKey(json.key);
 };
 
 getVapidKey();
