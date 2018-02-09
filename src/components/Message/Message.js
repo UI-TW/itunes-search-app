@@ -23,14 +23,15 @@ const msgMap = {
 
 class Message {
   render(id) {
-    document.querySelector('#' + id).innerHTML = messageTemplate({
-      status: state.status,
-      isLoading: state.status === 'loading',
-      isCompleted: state.status !== 'loading',
-      statusIcon: msgMap[state.status].icon,
-      statusText: msgMap[state.status].msg
-    });
-
+    if (state.status !== 'init') {
+      document.querySelector('#' + id).innerHTML = messageTemplate({
+        status: state.status,
+        isLoading: state.status === 'loading',
+        isCompleted: state.status !== 'loading',
+        statusIcon: msgMap[state.status].icon,
+        statusText: msgMap[state.status].msg
+      });
+    }
   }
 }
 

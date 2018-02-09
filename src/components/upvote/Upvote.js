@@ -2,6 +2,7 @@ import upvoteTemplate from './upvote.tpl.html';
 import state from '../../state';
 import apiSettings from '../../urlConfig';
 import './Upvote.css';
+import Message from "../Message/Message";
 
 class Upvote {
   constructor() {
@@ -23,15 +24,18 @@ class Upvote {
       state.status = 'loading';
       const resp = await fetch(apiSettings.upvote);
       const json = await resp.json();
+      state.status = json.favorites ? 'init' : 'noContent';
       state.upvotes = {...json.favorites.sort(this.sortFavs)};
       this.render();
     } catch (e) {
       state.status = 'error';
+      this.render();
     }
   }
 
   render() {
     document.querySelector('#main').innerHTML = upvoteTemplate(state);
+    new Message().render('main');
   }
 }
 
