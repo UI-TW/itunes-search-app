@@ -2,7 +2,7 @@ import './List.css';
 import listTemplate from './list.tpl.html';
 import state from '../../state';
 import apiSettings from '../../urlConfig';
-import { getAuthToken } from '../../utils/storageUtils';
+import { getAuthToken, getUserName } from '../../utils/storageUtils';
 
 
 const attachEventListeners = () => {
@@ -29,11 +29,10 @@ const attachEventListeners = () => {
 
 class List {
   render() {
-    const { isLoggedIn } = state;
     attachEventListeners();
     document.querySelector('#search_results').innerHTML = listTemplate({
       data: state.data.results,
-      isLoggedIn
+      isLoggedIn: !!getUserName()
     });
   }
 }

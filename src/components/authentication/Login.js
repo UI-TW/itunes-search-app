@@ -30,7 +30,6 @@ class Login {
         setAuthToken(json.token);
         setUserName(json.email);
         location.hash = '#search';
-        state.isLoggedIn = true;
       }
     } catch (e) {
       throw e;
@@ -57,7 +56,6 @@ class Login {
         setAuthToken(json.token);
         setUserName(json.email);
         location.hash = '#search';
-        state.isLoggedIn = true;
       }
     } catch (e) {
       throw e;
