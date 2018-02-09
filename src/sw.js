@@ -85,7 +85,36 @@ self.addEventListener('beforeinstallprompt', function(e) {
   });
 });
 // <!-- END: {Add to homescreen banner } {1} out of {1} -->
+// <!-- START: {Push } {1} out of {1} -->
+self.addEventListener('push', function(e) {
+  var body;
 
+  if (e.data) {
+    body = e.data.text();
+  } else {
+    body = 'Default body';
+  }
 
+  var options = {
+    body: body,
+    icon: 'images/notification-flat.png',
+    vibrate: [100, 50, 100],
+    data: {
+      dateOfArrival: Date.now(),
+      primaryKey: 1
+    },
+    actions: [
+      {action: 'explore', title: 'Music Finder',
+        icon: 'images/checkmark.png'},
+      {action: 'close', title: 'Close the notification',
+        icon: 'images/xmark.png'},
+    ]
+  };
+
+  e.waitUntil(
+    self.registration.showNotification('Push Notification', options)
+  );
+});
+// <!-- END: {Push } {1} out of {1} -->
 
 

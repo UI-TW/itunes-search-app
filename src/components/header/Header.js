@@ -59,7 +59,10 @@ class Header {
             fetch(apiSettings.subscribe, {
               method: 'POST',
               body: JSON.stringify({
-                subscription
+                subscription: subscription
+              }),
+              headers: new Headers({
+                'Content-Type': 'application/json'
               })
             });
           })
