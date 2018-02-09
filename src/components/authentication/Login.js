@@ -29,10 +29,8 @@ class Login {
       if (json.success) {
         setAuthToken(json.token);
         setUserName(json.email);
-        state.activeView = 'search';
+        location.hash = '#search';
         state.isLoggedIn = true;
-        emitter.emit('userVerification');
-        emitter.emit('viewChange', 'search');
       }
     } catch (e) {
       throw e;
@@ -58,10 +56,8 @@ class Login {
       if (json.success) {
         setAuthToken(json.token);
         setUserName(json.email);
-        state.activeView = 'search';
+        location.hash = '#search';
         state.isLoggedIn = true;
-        emitter.emit('userVerification');
-        emitter.emit('viewChange', 'search');
       }
     } catch (e) {
       throw e;
@@ -79,16 +75,16 @@ class Login {
   }
 
   attachEventListener() {
-    document.querySelector('#search_result').addEventListener('click', this.onClick.bind(this));
+    document.querySelector('#main').addEventListener('click', this.onClick.bind(this));
   }
 
   removeEventListener() {
-    document.querySelector('#search_result').removeEventListener('click', this.onClick.bind(this));
+    document.querySelector('#main').removeEventListener('click', this.onClick.bind(this));
   }
 
   render() {
     this.attachEventListener();
-    document.querySelector('#search_result').innerHTML = loginTemplate();
+    document.querySelector('#main').innerHTML = loginTemplate();
   }
 }
 

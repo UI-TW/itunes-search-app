@@ -23,31 +23,23 @@ class Header {
       case 'searchLink':
         e.preventDefault();
         state.status = 'init';
-        state.activeView = 'search';
-        emitter.emit('viewChange', state.activeView);
+        location.hash = '#search';
         break;
       case 'loginLink':
         e.preventDefault();
         state.status = 'init';
-        state.activeView = 'login';
-        emitter.emit('viewChange', state.activeView);
+        location.hash = '#login';
         break;
       case 'favLink':
         e.preventDefault();
         state.status = 'init';
-        state.activeView = 'favorites';
-        emitter.emit('viewChange', state.activeView);
+        location.hash = '#favorites';
         break;
       case 'logoutLink':
         e.preventDefault();
         removeAuthToken();
         removeUserName();
-        state.status = 'init';
-        state.isLoggedIn = false;
-        state.email = 'Guest';
-        state.activeView = 'search';
-        emitter.emit('viewChange', state.activeView);
-        this.render();
+        location.reload();
         break;
       default:
     }

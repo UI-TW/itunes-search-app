@@ -1,6 +1,7 @@
 const Handlebars = require('handlebars-template-loader/runtime');
 
-Handlebars.registerHelper('eq', function(arg1, arg2, options) {
-  return (arg1 === arg2) ? options.fn(this) : options.inverse(this);
+Handlebars.registerHelper('isRouteActive', function (view, options) {
+  const viewToRender = location.hash.replace('#', '') || 'search';
+  return (viewToRender === view) ? options.fn(this) : options.inverse(this);
 });
 

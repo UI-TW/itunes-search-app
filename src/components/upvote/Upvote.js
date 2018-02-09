@@ -31,7 +31,7 @@ class Upvote {
   }
 
   render() {
-    document.querySelector('#search_result').innerHTML = upvoteTemplate(state);
+    document.querySelector('#main').innerHTML = upvoteTemplate(state);
   }
 }
 

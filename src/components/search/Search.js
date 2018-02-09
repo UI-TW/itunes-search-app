@@ -56,7 +56,7 @@ class Search {
 
   render() {
     const html = searchTemplate(state);
-    document.querySelector('#container #search').innerHTML = html;
+    document.querySelector('#container #main').innerHTML = html;
     document.querySelector('.search-wrapper input').value = state.query;
     this.attachEventListeners();
   }
