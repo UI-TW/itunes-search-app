@@ -6,7 +6,7 @@ import { getAuthToken } from '../../utils/storageUtils';
 
 
 const attachEventListeners = () => {
-  document.querySelector('#search_result').addEventListener('click', (e) => {
+  document.querySelector('#main').addEventListener('click', (e) => {
     if (e.target.classList.contains('active-icon')) {
       return false;
     } else if ([...e.target.classList].includes('like-icon')) {
@@ -31,7 +31,7 @@ class List {
   render() {
     const { isLoggedIn } = state;
     attachEventListeners();
-    document.querySelector('#search_result').innerHTML = listTemplate({
+    document.querySelector('#search_results').innerHTML = listTemplate({
       data: state.data.results,
       isLoggedIn
     });

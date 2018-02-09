@@ -4,7 +4,7 @@
     <div class="spacer"></div>
     <ul class="menu">
       {{#if isLoggedIn}}
-      <li class="menu__item {{#eq activeView 'login'}}active{{/eq}}">
+      <li class="menu__item {{#isRouteActive 'login'}}active{{/isRouteActive}}">
         <a href="javascript:void(0);" class="menu__link user_info">
           <i class="material-icons">person</i>
           {{email}}
@@ -23,20 +23,20 @@
           {{email}}
         </a>
       </li>
-      <li class="menu__item {{#eq activeView 'login'}}active{{/eq}}">
+      <li class="menu__item {{#isRouteActive 'login'}}active{{/isRouteActive}}">
         <a href="javascript:void(0);" id="loginLink" class="menu__link">
           <i class="material-icons">input</i>
           <span class='icon-text'>Login/Signup</span>
         </a>
       </li>
       {{/if}}
-      <li class="menu__item {{#eq activeView 'search'}}active{{/eq}}">
+      <li class="menu__item {{#isRouteActive 'search'}}active{{/isRouteActive}}">
         <a href="javascript:void(0);" id="searchLink" class="menu__link">
           <i class="material-icons">search</i>
           <span class='icon-text'>Search</span>
         </a>
       </li>
-      <li class="menu__item {{#eq activeView 'favorites'}}active{{/eq}}">
+      <li class="menu__item {{#isRouteActive 'favorites'}}active{{/isRouteActive}}">
         <a href="javascript:void(0);" id="favLink" class="menu__link">
           <i class="material-icons">favorite</i>
           <span class='icon-text'>Upvotes</span>

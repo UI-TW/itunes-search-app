@@ -22,16 +22,15 @@ const msgMap = {
 
 
 class Message {
-  render() {
-    if (state.status !== 'init') {
-      document.querySelector('#search_result').innerHTML = messageTemplate({
-        status: state.status,
-        isLoading: state.status === 'loading',
-        isCompleted: state.status !== 'loading',
-        statusIcon: msgMap[state.status].icon,
-        statusText: msgMap[state.status].msg
-      });
-    }
+  render(id) {
+    document.querySelector('#' + id).innerHTML = messageTemplate({
+      status: state.status,
+      isLoading: state.status === 'loading',
+      isCompleted: state.status !== 'loading',
+      statusIcon: msgMap[state.status].icon,
+      statusText: msgMap[state.status].msg
+    });
+
   }
 }
 

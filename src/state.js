@@ -4,8 +4,7 @@ const userName = getUserName();
 export default {
   data: {},
   status: 'init',
-  activeView: 'search',
-  isLoggedIn: userName ? true : false,
+  isLoggedIn: !!userName,
   email: userName || 'Guest'
 };
 
