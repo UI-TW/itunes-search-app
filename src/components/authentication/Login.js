@@ -31,7 +31,6 @@ class Login {
         setUserName(json.email);
         state.activeView = 'search';
         state.isLoggedIn = true;
-        state.isGuest = false;
         emitter.emit('userVerification');
         emitter.emit('viewChange', 'search');
       }
@@ -61,7 +60,6 @@ class Login {
         setUserName(json.email);
         state.activeView = 'search';
         state.isLoggedIn = true;
-        state.isGuest = false;
         emitter.emit('userVerification');
         emitter.emit('viewChange', 'search');
       }

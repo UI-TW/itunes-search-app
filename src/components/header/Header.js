@@ -11,7 +11,12 @@ class Header {
   }
 
   onClick(e) {
-    const parentLink = e.target.closest('.menu__link');
+    let parentLink;
+    if(e.target.id === 'appHeader'){
+      parentLink = e.target;
+    }else{
+      parentLink = e.target.closest('.menu__link')
+    }
     switch (parentLink.id) {
       case 'appHeader':
       case 'searchLink':
@@ -38,7 +43,6 @@ class Header {
         removeUserName();
         state.status = 'init';
         state.isLoggedIn = false;
-        state.isGuest = true;
         state.email = 'Guest';
         state.activeView = 'search';
         emitter.emit('viewChange', state.activeView);

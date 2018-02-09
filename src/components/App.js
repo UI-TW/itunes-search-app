@@ -32,7 +32,6 @@ class App {
 
   setUserInfo() {
     state.isLoggedIn = true;
-    state.isGuest = false;
     state.email = getUserName();
   }
 
