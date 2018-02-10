@@ -1,16 +1,18 @@
 <div class="upvote-page">
   {{#each upvotes}}
-  <div class="card">
-    <div class="card-info">
-      <div class="card-info__ranking">
-        <i class="material-icons like-icon u-pointer">favorite</i>
-        <div>{{count}}</div>
+  <a target="_blank" href="{{collectionViewUrl}}">
+    <div class="card">
+      <div class="card-info">
+        <div class="card-info__ranking">
+          <i class="material-icons like-icon u-pointer">favorite</i>
+          <div>{{count}}</div>
+        </div>
+        <h3 class="card-info__title">{{collectionName}}</h3>
       </div>
-      <h3 class="card-info__title">{{collectionName}}</h3>
+      <div class="card-image">
+        <img src="{{artworkUrl100}}">
+      </div>
     </div>
-    <div class="card-image">
-      <img src="{{artworkUrl100}}">
-    </div>
-  </div>
+  </a>
   {{/each}}
 </div>
