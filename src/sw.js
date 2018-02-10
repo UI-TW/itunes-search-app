@@ -95,7 +95,7 @@ self.addEventListener('push', function(event) {
         const {userID, favorite} = JSON.parse(body)
         body = `${userID} has upvoted ${favorite.collectionName}`;
         self.collectionName = favorite.collectionName
-        self.artworkUrl = favorite.artworkUrl;
+        self.artworkUrl = favorite.artworkUrl30;
         self.collectionViewUrl = favorite.collectionViewUrl
     } catch(err) {
       console.log('Error while parsing JSON string', err)
