@@ -1,8 +1,10 @@
 /* global $ */
 import searchTemplate from './search.tpl.html';
-import emitter from '../../emitter';
 import './Search.css';
 import state from '../../state';
+import List from "../list/List";
+import {getApiUrl} from "../../utils";
+import Loader from "../loader/Loader";
 
 const options = [
   'All',
@@ -43,15 +45,25 @@ class Search {
       if (e.target.nodeName === 'A') {
         state.media = e.target.textContent.trim();
         if (state.query.length > 0) {
-          this.emitSearch();
+          this.getSearchResult();
         }
         this.render();
       }
     });
   }
 
-  emitSearch() {
-    emitter.emit('search', state);
+  async getSearchResult() {
+    try {
+      state.status = 'loading';
+      new Loader().render('search_results');
+      const resp = await fetch(getApiUrl({media: state.media, query: state.query}));
+      const json = await resp.json();
+      state.data = {...json};
+      state.status = json.resultCount ? 'init' : 'noContent';
+      new List().render();
+    } catch (e) {
+      state.status = 'error';
+    }
   }
 
   render() {
@@ -64,7 +76,7 @@ class Search {
   update = ({ keyCode, target: { value: query } }) => _ => {
     state.query = query;
     if (keyCode === 13) {
-      this.emitSearch();
+      this.getSearchResult();
     }
     this.ticking = false;
   }
