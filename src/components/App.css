@@ -12,25 +12,40 @@ body {
   background: #eee;
 }
 
-#online-status,
-#online-status.online {
+body.online #online-status,
+#online-status {
   height: 0;
   opacity: 0;
   padding: 0;
   transition: all 0.5s;
 }
 
-#online-status.online {
+body.online #online-status {
   background: #080;
 }
 
-#online-status.offline {
+body.offline #online-status {
   padding: 10px;
   background: #c00;
   opacity: 1;
   height: auto;
+
+  position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 9;
 }
 
 #online-status .row {
   margin-bottom: 0
 }
+
+body.offline #itunes-search {
+  margin-top: 42px;
+}
+
+body.online #itunes-search {
+  margin-top: 0;
+}
+

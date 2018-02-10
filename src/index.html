@@ -59,7 +59,7 @@
     function updateOnlineStatus(event) {
       var status = (navigator.onLine) ? "online" : "offline";
       var message = (navigator.onLine) ? "" : "<div class='row'><div class='col sm12 white-text'>You are offline. Your work would get synced once you are online</div></div>";
-      document.querySelector('#online-status').className = status;
+      $('body').removeClass('online').removeClass('offline').addClass(status);
       document.querySelector('#online-status').innerHTML = message;
     }
 
