@@ -66,6 +66,16 @@ workboxSW.router.registerRoute(/.*\/api\/search*/,
     cacheableResponse: {statuses: [0, 200]}
   })
 );
+
+workboxSW.router.registerRoute(/.*\/api\/upvote*/,
+  workboxSW.strategies.networkFirst({
+    cacheName: 'user',
+    cacheExpiration: {
+      maxEntries: 30
+    },
+    cacheableResponse: {statuses: [0, 200]}
+  })
+);
 // <!-- END:  {Caching files} {1} out of {1} -->
 
 // <!-- START: {Add to homescreen banner } {1} out of {1} -->
