@@ -1,6 +1,6 @@
-import './Message.css';
+import './Loader.css';
 import state from '../../state';
-import messageTemplate from './message.tpl.html';
+import loaderTemplate from './loader.tpl.html';
 
 const msgMap = {
   init: {
@@ -21,10 +21,10 @@ const msgMap = {
 };
 
 
-class Message {
+class Loader {
   render(id) {
     if (state.status !== 'init') {
-      document.querySelector('#' + id).innerHTML = messageTemplate({
+      document.querySelector('#' + id).innerHTML = loaderTemplate({
         status: state.status,
         isLoading: state.status === 'loading',
         isCompleted: state.status !== 'loading',
@@ -35,4 +35,4 @@ class Message {
   }
 }
 
-export default Message;
+export default Loader;

@@ -2,7 +2,7 @@ import upvoteTemplate from './upvote.tpl.html';
 import state from '../../state';
 import apiSettings from '../../urlConfig';
 import './Upvote.css';
-import Message from "../Message/Message";
+import Loader from "../loader/Loader";
 
 class Upvote {
   constructor() {
@@ -35,7 +35,7 @@ class Upvote {
 
   render() {
     document.querySelector('#main').innerHTML = upvoteTemplate(state);
-    new Message().render('main');
+    new Loader().render('main');
   }
 }
 
