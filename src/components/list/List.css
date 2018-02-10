@@ -20,6 +20,14 @@
     line-height: normal;
 }
 
+.list-wrapper .card-reveal {
+  padding: 10px;
+}
+.list-wrapper .card-reveal p {
+  margin: 0;
+  padding: 0;
+  padding-right: 28px;
+}
 .list-wrapper .card-header i,
 .list-wrapper .card-reveal i {
     position: absolute;
