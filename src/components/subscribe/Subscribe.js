@@ -32,21 +32,21 @@ class Notification {
               'Content-Type': 'application/json'
             })
           })
-            .then((resp) => {
-              if(resp.ok)
-                console.log('%c Push notification subscription successful', 'color: #00ffff');
-            })
-            .catch((err) => {
-              console.log('Error on subcription', err);
-            });
-        })
-        .catch((err) => {
-          if (Notification.permission === 'denied') {
-            console.warn('Permission for notifications was denied');
-          } else {
-            console.error('Failed to subscribe the user: ', err);
-          }
-        });
+          .then((resp) => {
+            if(resp.ok)
+              console.log('%c Push notification subscription successful', 'color: #00ffff');
+          })
+          .catch((err) => {
+            console.log('Error on subcription', err);
+          });
+      })
+      .catch((err) => {
+        if (Notification.permission === 'denied') {
+          console.warn('Permission for notifications was denied');
+        } else {
+          console.error('Failed to subscribe the user: ', err);
+        }
+      });
     });
   }
 
