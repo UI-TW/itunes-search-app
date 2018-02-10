@@ -18,7 +18,6 @@ self.addEventListener('activate', event => {
 
 // <!-- START: {Adding Sync} {1} out of {2} -->
 self.addEventListener('message', function(event) {
-  console.log("SW Received Message", event.data[0]);
   if(event.data[0].eventName === 'upvote') {
     self.upvoteUrl = event.data[0].url;
     self.upvoteRequestItem = event.data[0].requestItem;
@@ -98,7 +97,7 @@ self.addEventListener('push', function(event) {
         self.artworkUrl = favorite.artworkUrl30;
         self.collectionViewUrl = favorite.collectionViewUrl
     } catch(err) {
-      console.log('Error while parsing JSON string', err)
+      console.error('Error while parsing JSON string', err)
     }
 
   }
@@ -127,24 +126,24 @@ self.addEventListener('push', function(event) {
 
 self.addEventListener('notificationclick', function(event) {
 
-  const siteUrl = (event.target && event.target.origin) + "/"
-
-  console.log('[Service Worker] Notification click Received.');
   //Listen to custom action buttons in push notification
   if (event.action === 'explore') {
     console.log(`I ♥ this collection! : ${self.collectionName}`);
     clients.openWindow(self.collectionViewUrl);
   }
 
-  // event.notification.close(); //Close the notification
+  event.notification.close(); //Close the notification
 
   //To open the app after clicking notification
+  const siteUrl = (event.target && event.target.origin) + "/"
+
   event.waitUntil(
-    clients.matchAll({"type":"window"})
-    .then((clients) => {
+    clients.matchAll({
+      type: 'window'
+    }).then((clients) => {
       let found = false;
       for (i = 0; i < clients.length; i++) {
-        if (clients[i].url === siteUrl) {
+        if (clients[i].url.split("#")[0] === siteUrl) {
           // We already have a window to use, focus it.
           found = true;
           clients[i].focus();
@@ -158,8 +157,11 @@ self.addEventListener('notificationclick', function(event) {
           // do something with the windowClient.
         })
       }
+    }).catch((err) => {
+      console.error("Error on notificationclick event \n", err);
     })
   );
+
 });
 // <!-- END: {Push } {1} out of {1} -->
 
