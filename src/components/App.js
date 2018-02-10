@@ -1,10 +1,8 @@
 import '../helpers';
 
 import {getApiUrl} from '../utils';
-import apiSettings from '../urlConfig';
-import {getVapidKey} from '../utils/storageUtils';
 
-import Message from './Message/Message';
+import Loader from './loader/Loader';
 import './App.css';
 import emitter from '../emitter';
 import state from '../state';
@@ -21,7 +19,7 @@ class App {
   async getSearchResult(headerState) {
     try {
       state.status = 'loading';
-      new Message().render('search_results');
+      new Loader().render('search_results');
       const resp = await fetch(getApiUrl(headerState));
       const json = await resp.json();
       state.data = {...json};
