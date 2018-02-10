@@ -23,14 +23,16 @@
     "jest:update": "jest --u test/unit",
     "jest": "jest test/unit",
     "clean": "rimraf dist/*",
-    "build": "webpack --config ./webpack/webpack.config.prod.js --progress --colors --define process.env.NODE_ENV='\"production\"'",
     "dev": "webpack-dev-server --progress --color --config ./webpack/webpack.config.dev.js",
-    "deploy": "npm run clean && npm run build",
+    "build": "webpack --config ./webpack/webpack.config.prod.js --progress --colors --define process.env.NODE_ENV='\"production\"'",
+    "build:pwa": "webpack --config ./webpack/webpack.config.prod.pwa.js --progress --colors --define process.env.NODE_ENV='\"production\"'",
+    "compile": "npm run clean && npm run build",
+    "compile:pwa": "npm run clean && npm run build:pwa",
     "lint": "eslint src/** webpack/** test/**",
     "lint:fix": "npm run lint -- --fix",
     "watch": "npm-watch",
-    "build:pwa": "workbox inject:manifest",
-    "deploy:pwa": "npm run deploy && npm run build:pwa",
+    "workbox:build": "workbox inject:manifest",
+    "deploy:pwa": "npm run compile:pwa && npm run workbox:build",
     "serve:dist": "http-server ./dist -p 3040",
     "start": "concurrently \"npm run watch\" \"npm run serve:dist\""
   },
@@ -51,7 +53,8 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "handlebars": "^4.0.11",
-    "jquery": "^3.3.1"
+    "jquery": "^3.3.1",
+    "workbox-sw": "^2.1.2"
   },
   "devDependencies": {
     "babel-core": "^6.7.2",
@@ -87,7 +90,6 @@
     "url-loader": "^0.6.2",
     "webpack": "^3.3.0",
     "webpack-dev-server": "^2.4.2",
-    "workbox-cli": "^2.1.2",
-    "workbox-sw": "^2.1.2"
+    "workbox-cli": "^2.1.2"
   }
 }

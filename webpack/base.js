@@ -1,6 +1,5 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -54,24 +53,6 @@ module.exports = {
       inject: true,
       filename: path.resolve(__dirname, '../dist', 'index.html'),
       template: path.resolve(__dirname, '../src', 'index.html')
-    }),
-
-    new CopyWebpackPlugin([
-      {
-        from: path.resolve(__dirname, '../', 'src/images'),
-        to: path.resolve(__dirname, '../', 'dist/images')
-      },
-      /*  START: {Adding Manifest file} {2} out of {2} */
-      {
-        from: path.resolve(__dirname, '../', 'src/manifest.json'),
-        to: path.resolve(__dirname, '../', 'dist')
-      },
-       /*  END: {Adding Manifest file} {2} out of {2} */
-      {
-        from: path.resolve(__dirname, '../', 'node_modules/workbox-sw/build/importScripts/workbox-sw.prod.v2.1.2.js'),
-        to: path.resolve(__dirname, '../', 'dist/')
-      }
-    ])
-
+    })
   ]
 };
