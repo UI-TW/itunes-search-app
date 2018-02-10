@@ -31,23 +31,22 @@ const attachEventListeners = () => {
           }]);
           return reg.sync.register('upvoteSync');
         };
-        
+
         //START: {Adding Sync} {2} out of {2}
         if ('serviceWorker' in navigator && 'SyncManager' in window) {
           navigator.serviceWorker.ready.then(function(reg) {
             if(navigator.serviceWorker.controller) {
               return postMessage(reg);
-              
             }
             else {
-              return new Promise((res, rej) => {
+              return new Promise((res) => {
                 navigator.serviceWorker.oncontrollerchange = function() {
                   res(postMessage(reg));
                 };
-              });              
+              });
             }
-            
-          }).catch(function() {
+          }).catch(function (e) {
+            console.log(e);
             fetch(apiSettings.upvote, requestItem);
           });
         }
