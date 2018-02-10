@@ -1,5 +1,4 @@
 @import '../style/utils.css';
-@import '../style/palette.css';
 
 html {
   box-sizing: border-box;
@@ -34,15 +33,4 @@ body {
 
 #online-status .row {
   margin-bottom: 0
-}
-
-#subscribeLink {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-}
-
-#subscribeLink:hover,
-#subscribeLink:focus {
-  background: var(--default-primary-color);
 }

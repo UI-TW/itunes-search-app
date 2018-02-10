@@ -11,6 +11,7 @@ import state from '../state';
 import appTemplate from './app.tpl.html';
 import List from "./list/List";
 import Router from './Router';
+import Subscribe from "./subscribe/Subscribe";
 
 class App {
   constructor() {
@@ -31,63 +32,11 @@ class App {
     }
   }
 
-  //START: {Adding Push} {3} out of {5}
-  subscribe(e) {
-    e.preventDefault();
-    const iconElement = e.currentTarget.querySelector('i');
-    if (iconElement.textContent === 'notifications_active'){
-      return;
-    }
-    navigator.serviceWorker.ready.then(function(reg) {
-      const vapidKey = getVapidKey();
-      reg.pushManager.subscribe({
-        userVisibleOnly: true,
-        applicationServerKey: vapidKey
-      })
-        .then((subscription) => {
-          iconElement.textContent = 'notifications_active';
-          fetch(apiSettings.subscribe, {
-            method: 'POST',
-            body: JSON.stringify({
-              subscription: subscription
-            }),
-            headers: new Headers({
-              'Content-Type': 'application/json'
-            })
-          })
-          .then((resp) => {
-            if(resp.ok)
-              console.log('%c Push notification subscription successful', 'color: #00ffff');
-          })
-          .catch((err) => {
-            console.log('Error on subcription', err);
-          });
-        })
-        .catch((err) => {
-          if (Notification.permission === 'denied') {
-            console.warn('Permission for notifications was denied');
-          } else {
-            console.error('Failed to subscribe the user: ', err);
-          }
-        });
-    });
-  }
-
-  attachEventListeners() {
-    try {
-      document.querySelector('#subscribeLink').removeEventListener('click', this.subscribe.bind(this));
-    } catch (e) {
-      throw e;
-    }
-    document.querySelector('#subscribeLink').addEventListener('click', this.subscribe.bind(this));
-  }
-  //END: {Adding Push} {3} out of {5}
-
   render() {
     let appContainer = document.querySelector('#itunes-search');
     appContainer.innerHTML = appTemplate();
     new Router();
-    this.attachEventListeners();
+    new Subscribe();
   }
 }
 
