@@ -57,7 +57,7 @@ class Header {
     const userName = getUserName();
     const html = headerTemplate({
       isLoggedIn: !!userName,
-      email: userName || 'Guest'
+      email: !!userName ? userName.replace(/@.*/, '') : 'Guest'
     });
     document.querySelector('#container #header').innerHTML = html;
     this.attachEventListeners();
