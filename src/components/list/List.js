@@ -22,15 +22,31 @@ const attachEventListeners = () => {
             'authorization': getAuthToken()
           }
         };
+
+        const postMessage = (reg) => {
+          navigator.serviceWorker.controller.postMessage([{
+            eventName: 'upvote',
+            url: apiSettings.upvote,
+            requestItem: requestItem
+          }]);
+          return reg.sync.register('upvoteSync');
+        };
+        
         //START: {Adding Sync} {2} out of {2}
         if ('serviceWorker' in navigator && 'SyncManager' in window) {
           navigator.serviceWorker.ready.then(function(reg) {
-            navigator.serviceWorker.controller.postMessage([{
-              eventName: 'upvote',
-              url: apiSettings.upvote,
-              requestItem: requestItem
-            }]);
-            return reg.sync.register('upvoteSync');
+            if(navigator.serviceWorker.controller) {
+              return postMessage(reg);
+              
+            }
+            else {
+              return new Promise((res, rej) => {
+                navigator.serviceWorker.oncontrollerchange = function() {
+                  res(postMessage(reg));
+                };
+              });              
+            }
+            
           }).catch(function() {
             fetch(apiSettings.upvote, requestItem);
           });
