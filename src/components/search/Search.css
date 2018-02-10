@@ -41,10 +41,12 @@ ul li.select {
   font-weight: 600;
   background: #e0e0e0;
 }
+
 .dropdown-button {
   min-width: 120px;
   padding: 0 10px;
 }
+
 .dropdown-button:hover {
   background: var(--default-primary-color);
 }
@@ -54,12 +56,17 @@ ul li.select {
   display: block;
 }
 
+.dropdown-wrapper .dropdown-content li > a {
+  color: var(--primary-text-color);
+}
+
 @media only screen and (min-width: 640px) {
   .search-wrapper {
     width: 40vw;
     flex-grow: initial;
   }
 }
+
 @media only screen and (min-width: 1024px) {
   .search-wrapper {
     width: 30vw;
