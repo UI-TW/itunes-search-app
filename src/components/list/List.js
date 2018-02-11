@@ -14,16 +14,46 @@ const attachEventListeners = () => {
       const collectionId = e.target.querySelector('input[type="hidden"]').value;
       const collection = state.data.results.find(item =>
         item.collectionId === parseInt(collectionId, 10));
+
       // <!-- Step 4b: Sync on upvote -->
-      fetch(apiSettings.upvote, {
+      const requestItem = {
         method: 'POST',
         body: JSON.stringify(collection),
-        headers: new Headers({
+        headers: {
           'Content-Type': 'application/json',
-          authorization: getAuthToken()
-        })
-      })
-        .then(res => res.json());
+          'authorization': getAuthToken()
+        }
+      };
+
+      const postMessage = (reg) => {
+        navigator.serviceWorker.controller.postMessage([{
+          eventName: 'upvote',
+          url: apiSettings.upvote,
+          requestItem: requestItem
+        }]);
+        return reg.sync.register('upvoteSync');
+      };
+
+      if ('serviceWorker' in navigator && 'SyncManager' in window) {
+        navigator.serviceWorker.ready.then(function(reg) {
+          if(navigator.serviceWorker.controller) {
+            return postMessage(reg);
+          }
+          else {
+            return new Promise((res) => {
+              navigator.serviceWorker.oncontrollerchange = function() {
+                res(postMessage(reg));
+              };
+            });
+          }
+        }).catch(function (e) {
+          console.log(e);
+          fetch(apiSettings.upvote, requestItem);
+        });
+      }
+      else {
+        fetch(apiSettings.upvote, requestItem);
+      }
       // <!-- Step 4b: Sync on upvote -->
     }
   });

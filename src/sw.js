@@ -95,7 +95,24 @@ self.addEventListener('notificationclick', function(event) {
   );
 
 });
+// <!-- Step 3d: Add notification click action -->
 
 // <!-- Step 4a: Add sync handler -->
+self.addEventListener('message', function(event) {
+  if(event.data[0].eventName === 'upvote') {
+    self.upvoteUrl = event.data[0].url;
+    self.upvoteRequestItem = event.data[0].requestItem;
+  }
+});
 
+self.addEventListener('sync', event => {
+  if (event.tag == 'upvoteSync') {
+    event.waitUntil(
+      fetch(self.upvoteUrl, self.upvoteRequestItem)
+        .then(res => res.json())
+        .then(res => console.log)
+        .catch(e => console.log)
+    );
+  }
+});
 // <!-- Step 4a: Add sync handler -->
