@@ -7,5 +7,7 @@ const apiSettings = {
   signup: `${baseUrl}/accounts/signup`,
   upvote: `${baseUrl}/upvote`,
   search: `${baseUrl}/search`,
+  getVapidKey: `${baseUrl}/getvapidkey`,
+  subscribe: `${baseUrl}/subscribe`
 };
 export default apiSettings;
