@@ -95,4 +95,7 @@ self.addEventListener('notificationclick', function(event) {
   );
 
 });
-// <!-- Step 3d: Add notification click action -->
+
+// <!-- Step 4a: Add sync handler -->
+
+// <!-- Step 4a: Add sync handler -->
