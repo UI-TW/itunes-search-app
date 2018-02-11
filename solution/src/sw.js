@@ -116,3 +116,46 @@ self.addEventListener('sync', event => {
   }
 });
 // <!-- Step 4a: Add sync handler -->
+
+// <!-- Step 5a: Caching assets from cdn -->
+workboxSW.router.registerRoute(/.*(?:googleapis|gstatic)\.com.*$/,
+  workboxSW.strategies.cacheFirst({
+    cacheName: 'googleapis',
+    cacheExpiration: {
+      maxEntries: 30
+    },
+    cacheableResponse: {statuses: [0, 200]}
+  })
+);
+workboxSW.router.registerRoute(/.*(?:cdnjs)(?:\.cloudflare)\.com*/,
+  workboxSW.strategies.cacheFirst({
+    cacheName: 'cdnjs',
+    cacheExpiration: {
+      maxEntries: 30
+    },
+    cacheableResponse: {statuses: [0, 200]}
+  })
+);
+// <!-- Step 5a: Caching assets from cdn -->
+
+// <!-- Step 5b: Caching api responses -->
+workboxSW.router.registerRoute(/.*\/api\/search*/,
+  workboxSW.strategies.cacheFirst({
+    cacheName: 'user',
+    cacheExpiration: {
+      maxEntries: 30
+    },
+    cacheableResponse: {statuses: [0, 200]}
+  })
+);
+
+workboxSW.router.registerRoute(/.*\/api\/upvote*/,
+  workboxSW.strategies.networkFirst({
+    cacheName: 'user',
+    cacheExpiration: {
+      maxEntries: 30
+    },
+    cacheableResponse: {statuses: [0, 200]}
+  })
+);
+// <!-- Step 5b: Caching api responses -->
