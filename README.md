@@ -71,7 +71,7 @@ to a PWA compliant one by following the below steps.
 
 - Each step above is present inside a separate branch.
 - Checkout the branches and start implementing the respective feature.
-- If you need any assistance, each branch has a solution folder for reference
+- Each branch has a solution folder for reference
 - The final pwa compliant app is present in 'pwa' branch.
   
 
