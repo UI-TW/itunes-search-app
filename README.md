@@ -15,7 +15,11 @@ We are using node v8.9
 ## Where do we go from here?
 
 - Its a simple app, like any other website. Will be converting it 
-to a PWA compliant one by following the below steps.
+to a PWA compliant one by following the below steps. And on top of it
+we will also implement
+
+  - Push notification when any user upvotes
+  - Upvoting option even when offline
 
 ### Step 1
 
