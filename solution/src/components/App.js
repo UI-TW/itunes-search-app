@@ -10,6 +10,7 @@ class App {
     appContainer.innerHTML = appTemplate();
     new Router();
     // <!-- Step 3a: Add subscribe icon to app -->
+    new Subscribe();
     // <!-- Step 3a: Add subscribe icon to app -->
   }
 }
