@@ -1,12 +1,12 @@
 ## Pre-requisite
 [Node](https://nodejs.org/en/)
-[Yarn](https://yarnpkg.com/en/)
+[npm](https://www.npmjs.com/)
 We are using node v8.9
 
 ## To run application
 - nvm use (If you are using nvm to manage node version)
-- yarn install
-- yarn start (To start the application)
+- npm install
+- npm start (To start the application)
 
 ## About the app
 - This is a small app used to search albums and add upvote them.
