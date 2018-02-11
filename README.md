@@ -23,7 +23,7 @@ we will also implement
 
 ### Step 1
 
-- Add service worker
+- Service worker
 
   - Register service worker
   - Add service worker lifecycle events
@@ -39,6 +39,7 @@ we will also implement
 ### Step 3
 
 - Push notification
+
   - Add subscribe icon to app
   	- Add in template
   	- Create component
@@ -53,6 +54,7 @@ we will also implement
 ### Step 4
 
 - Sync
+
   - Add sync handler
   - Sync on upvote
   	- Post message to service worker with upvoted item
@@ -61,12 +63,14 @@ we will also implement
 ### Step 5
 
 - Dynamic Caching
+
   - Caching assets from cdn
   - Caching api responses
 
 ### Step 6
 
 - Manifest
+
   - Add manifest.json
   - Add to home screen (beforeinstallprompt) 
   - Add splash screen (out of the box)
