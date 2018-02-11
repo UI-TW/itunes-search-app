@@ -116,3 +116,11 @@ self.addEventListener('sync', event => {
   }
 });
 // <!-- Step 4a: Add sync handler -->
+
+// <!-- Step 5a: Caching assets from cdn -->
+
+// <!-- Step 5a: Caching assets from cdn -->
+
+// <!-- Step 5b: Caching api responses -->
+
+// <!-- Step 5b: Caching api responses -->
