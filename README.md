@@ -10,7 +10,7 @@ We are using node v8.9
 - Open http://localhost:3040 in browser
 
 ## About the app
-- This is a small app used to search albums and add upvote them.
+- This is an app used to search albums and upvote them (logged-in users only).
 
 ## Where do we go from here?
 
