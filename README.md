@@ -7,6 +7,7 @@ We are using node v8.9
 - nvm use (If you are using nvm to manage node version)
 - npm install
 - npm start (To start the application)
+- Open http://localhost:3040 in browser
 
 ## About the app
 - This is a small app used to search albums and add upvote them.
