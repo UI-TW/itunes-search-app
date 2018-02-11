@@ -62,7 +62,7 @@ we will also implement
 
 ### Step 5
 
-- Dynamic Caching
+- Caching
 
   - Caching assets from cdn
   - Caching api responses
