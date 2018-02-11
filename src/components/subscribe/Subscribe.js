@@ -16,6 +16,39 @@ class Subscribe {
     }
 
     // <!-- Step 3c: Add subscribe action -->
+    navigator.serviceWorker.ready.then(function(reg) {
+      const vapidKey = getVapidKey();
+      reg.pushManager.subscribe({
+        userVisibleOnly: true,
+        applicationServerKey: vapidKey
+      })
+        .then((subscription) => {
+          iconElement.textContent = 'notifications_active';
+          fetch(apiSettings.subscribe, {
+            method: 'POST',
+            body: JSON.stringify({
+              subscription: subscription
+            }),
+            headers: new Headers({
+              'Content-Type': 'application/json'
+            })
+          })
+            .then((resp) => {
+              if(resp.ok)
+                console.log('%c Push notification subscription successful', 'color: #00ffff');
+            })
+            .catch((err) => {
+              console.log('Error on subcription', err);
+            });
+        })
+        .catch((err) => {
+          if (Notification.permission === 'denied') {
+            console.warn('Permission for notifications was denied');
+          } else {
+            console.error('Failed to subscribe the user: ', err);
+          }
+        });
+    });
     // <!-- Step 3c: Add subscribe action -->
   }
 
