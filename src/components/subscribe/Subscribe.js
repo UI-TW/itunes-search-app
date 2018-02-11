@@ -12,6 +12,9 @@ class Subscribe {
     if (iconElement.textContent === 'notifications_active'){
       return;
     }
+
+    // <!-- Step 3c: Add subscribe action -->
+    // <!-- Step 3c: Add subscribe action -->
   }
 
   attachEventListeners() {

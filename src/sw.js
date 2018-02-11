@@ -13,3 +13,9 @@ self.addEventListener('activate', event => {
   event.waitUntil(self.clients.claim());
 });
 // <!-- Step 1b: Add service worker lifecycle events -->
+
+// <!-- Step 3d: Add push event handler to show notification with configurable options -->
+// <!-- Step 3d: Add push event handler to show notification with configurable options -->
+
+// <!-- Step 3d: Add notification click action -->
+// <!-- Step 3d: Add notification click action -->
