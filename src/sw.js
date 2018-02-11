@@ -159,3 +159,7 @@ workboxSW.router.registerRoute(/.*\/api\/upvote*/,
   })
 );
 // <!-- Step 5b: Caching api responses -->
+
+// <!-- Step 6b: Caching api responses -->
+
+// <!-- Step 6b: Caching api responses -->
