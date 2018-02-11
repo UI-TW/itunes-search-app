@@ -1,5 +1,7 @@
 import './Subscribe.css';
 import subscribeTemplate from './subscribe.tpl.html';
+import apiSettings from '../../urlConfig';
+import {getVapidKey} from '../../utils/storageUtils';
 
 class Subscribe {
   constructor() {
