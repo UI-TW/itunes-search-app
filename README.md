@@ -67,5 +67,12 @@ to a PWA compliant one by following the below steps.
   - Add to home screen (beforeinstallprompt) 
   - Add spash screen (out of the box)
   
+## Note
+
+- Each step above is present inside a separate branch.
+- Checkout the branches and start implementing the respective feature.
+- If you need any assistance, each branch has a solution folder for reference
+- The final pwa compliant app is present in 'pwa' branch.
+  
 
   	
