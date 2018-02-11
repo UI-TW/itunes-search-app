@@ -69,7 +69,7 @@ we will also implement
 - Manifest
   - Add manifest.json
   - Add to home screen (beforeinstallprompt) 
-  - Add spash screen (out of the box)
+  - Add splash screen (out of the box)
   
 ## Note
 
