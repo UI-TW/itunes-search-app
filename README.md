@@ -27,6 +27,7 @@ we will also implement
 
   - Register service worker
   - Add service worker lifecycle events
+  - Workbox
 
 ### Step 2
 
@@ -35,23 +36,25 @@ we will also implement
   - Pre-cache minimal assets required
   - Add noscript
   - Add offline indication
-
+  
 ### Step 3
+
+- Caching
+
+  - Caching assets from cdn
+  - Caching api responses
+
+### Step 4
 
 - Push notification
 
-  - Add subscribe icon to app
-  	- Add in template
-  	- Create component
-  	- Include component
   - Fetch server identification (VAPID) key
   - Add subscribe action
   - Push event
-  	- Add push event handler
-  	- Configure more options in notification
+  	- Add push event handler and configure notification with options
   	- Add notification click action
   	
-### Step 4
+### Step 5
 
 - Sync
 
@@ -60,19 +63,11 @@ we will also implement
   	- Post message to service worker with upvoted item
   	- Perform upvote sync with server
 
-### Step 5
-
-- Caching
-
-  - Caching assets from cdn
-  - Caching api responses
-
 ### Step 6
 
 - Manifest
 
   - Add manifest.json
-  - Add to home screen (beforeinstallprompt) 
   - Add splash screen (out of the box)
   
 ## Note
