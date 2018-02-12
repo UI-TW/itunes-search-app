@@ -1,4 +1,5 @@
-import urlB64ToUint8Array from 'urlb64touint8array';
+'use strict';
+import toUint8Array from 'urlb64touint8array';
 
 export const setAuthToken = (token) => {
   sessionStorage.setItem('token', token);
@@ -24,21 +25,6 @@ export const removeUserName = () => {
   sessionStorage.removeItem('name');
 };
 
-// const urlB64ToUint8Array = (base64String) => {
-//   const padding = '='.repeat((4 - base64String.length % 4) % 4);
-//   const base64 = (base64String + padding)
-//     .replace(/\-/g, '+')
-//     .replace(/_/g, '/');
-
-//   const rawData = window.atob(base64);
-//   const outputArray = new Uint8Array(rawData.length);
-
-//   for (let i = 0; i < rawData.length; ++i) {
-//     outputArray[i] = rawData.charCodeAt(i);
-//   }
-//   return outputArray;
-// };
-
 export const setVapidKey= (key) => {
   sessionStorage.setItem('vapidKey', JSON.stringify(key));
 };
@@ -46,8 +32,8 @@ export const setVapidKey= (key) => {
 export const getVapidKey = () => {
   if (sessionStorage.getItem('vapidKey')){
     const key = JSON.parse(sessionStorage.getItem('vapidKey'));
-    const vapidKeyBuffer = urlB64ToUint8Array(key);
-    console.log('vapidKeyBuffer : ', vapidKeyBuffer);
+    const vapidKeyBuffer = toUint8Array(key);
+    console.log("galeel : ", toUint8Array(key));
     return vapidKeyBuffer;
   }
 };
