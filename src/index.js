@@ -1,7 +1,7 @@
 import 'babel-polyfill';
 import App from './components/App';
 import apiSettings from './urlConfig';
-import {setVapidKey} from './utils/storageUtils';
+import {setVapidKeyToStore} from './utils/storageUtils';
 
 new App().render();
 
@@ -9,7 +9,7 @@ new App().render();
 const getVapidKey = async () => {
   const resp = await fetch(apiSettings.getVapidKey);
   const json = await resp.json();
-  setVapidKey(json.key);
+  setVapidKeyToStore(json.key);
 };
 
 getVapidKey();

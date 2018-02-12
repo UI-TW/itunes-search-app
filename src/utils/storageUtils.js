@@ -25,15 +25,15 @@ export const removeUserName = () => {
   sessionStorage.removeItem('name');
 };
 
-export const setVapidKey= (key) => {
+export const setVapidKeyToStore = (key) => {
   sessionStorage.setItem('vapidKey', JSON.stringify(key));
 };
 
-export const getVapidKey = () => {
-  if (sessionStorage.getItem('vapidKey')){
-    const key = JSON.parse(sessionStorage.getItem('vapidKey'));
+export const getVapidKeyFromStore = () => {
+  const vapidKey = sessionStorage.getItem('vapidKey')
+  if (vapidKey){
+    const key = JSON.parse(vapidKey);
     const vapidKeyBuffer = toUint8Array(key);
-    console.log("galeel : ", toUint8Array(key));
     return vapidKeyBuffer;
   }
 };

@@ -1,7 +1,7 @@
 import './Subscribe.css';
 import subscribeTemplate from './subscribe.tpl.html';
 import apiSettings from '../../urlConfig';
-import {getVapidKey} from '../../utils/storageUtils';
+import {getVapidKeyFromStore} from '../../utils/storageUtils';
 
 class Subscribe {
   constructor() {
@@ -17,10 +17,9 @@ class Subscribe {
 
     // <!-- Step 4b: Add subscribe action -->
     navigator.serviceWorker.ready.then(function(reg) {
-      const vapidKey = getVapidKey();
       reg.pushManager.subscribe({
         userVisibleOnly: true,
-        applicationServerKey: vapidKey
+        applicationServerKey: getVapidKeyFromStore()
       })
         .then((subscription) => {
           iconElement.textContent = 'notifications_active';
