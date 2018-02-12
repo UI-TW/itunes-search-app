@@ -159,7 +159,3 @@ workboxSW.router.registerRoute(/.*\/api\/upvote*/,
   })
 );
 // <!-- Step 5b: Caching api responses -->
-
-// <!-- Step 6b: Add to home screen event -->
-
-// <!-- Step 6b: Add to home screen event -->
