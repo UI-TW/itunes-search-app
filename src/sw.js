@@ -64,7 +64,8 @@ self.addEventListener('push', function(event) {
   if (event.data) {
     body = event.data.text();
     try {
-      const {userID, favorite} = JSON.parse(body)
+      let {userID, favorite} = JSON.parse(body);
+      userID = userID.replace(/@.*/, '')
       body = `${userID} has upvoted ${favorite.collectionName}`;
       self.collectionName = favorite.collectionName
       self.artworkUrl = favorite.artworkUrl30;
