@@ -50,9 +50,8 @@ we will also implement
 
   - Fetch server identification (VAPID) key
   - Add subscribe action
-  - Push event
-  	- Add push event handler and configure notification with options
-  	- Add notification click action
+  - Add listener to handle push message from server and show them via push notification
+  - Add push notification click action to focus the app
   	
 ### Step 5
 
