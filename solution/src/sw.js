@@ -14,7 +14,50 @@ self.addEventListener('activate', event => {
 });
 // <!-- Step 1b: Add service worker lifecycle events -->
 
-// <!-- Step 3d: Add push event handler to show notification with configurable options -->
+// <!-- Step 3a: Caching assets from cdn -->
+workboxSW.router.registerRoute(/.*(?:googleapis|gstatic)\.com.*$/,
+  workboxSW.strategies.cacheFirst({
+    cacheName: 'googleapis',
+    cacheExpiration: {
+      maxEntries: 30
+    },
+    cacheableResponse: {statuses: [0, 200]}
+  })
+);
+workboxSW.router.registerRoute(/.*(?:cdnjs)(?:\.cloudflare)\.com*/,
+  workboxSW.strategies.cacheFirst({
+    cacheName: 'cdnjs',
+    cacheExpiration: {
+      maxEntries: 30
+    },
+    cacheableResponse: {statuses: [0, 200]}
+  })
+);
+// <!-- Step 3a: Caching assets from cdn -->
+
+// <!-- Step 3b: Caching api responses -->
+workboxSW.router.registerRoute(/.*\/api\/search*/,
+  workboxSW.strategies.cacheFirst({
+    cacheName: 'user',
+    cacheExpiration: {
+      maxEntries: 30
+    },
+    cacheableResponse: {statuses: [0, 200]}
+  })
+);
+
+workboxSW.router.registerRoute(/.*\/api\/upvote*/,
+  workboxSW.strategies.networkFirst({
+    cacheName: 'user',
+    cacheExpiration: {
+      maxEntries: 30
+    },
+    cacheableResponse: {statuses: [0, 200]}
+  })
+);
+// <!-- Step 3b: Caching api responses -->
+
+// <!-- Step 4c: Add push event handler to show notification with configurable options -->
 self.addEventListener('push', function(event) {
   let body = '';
 
@@ -53,9 +96,9 @@ self.addEventListener('push', function(event) {
     self.registration.showNotification('Music Finder', options)
   );
 });
-// <!-- Step 3d: Add push event handler to show notification with configurable options -->
+// <!-- Step 4c: Add push event handler to show notification with configurable options -->
 
-// <!-- Step 3d: Add notification click action -->
+// <!-- Step 4d: Add notification click action -->
 self.addEventListener('notificationclick', function(event) {
 
   //Listen to custom action buttons in push notification
@@ -95,9 +138,9 @@ self.addEventListener('notificationclick', function(event) {
   );
 
 });
-// <!-- Step 3d: Add notification click action -->
+// <!-- Step 4d: Add notification click action -->
 
-// <!-- Step 4a: Add sync handler -->
+// <!-- Step 5a: Add sync handler -->
 self.addEventListener('message', function(event) {
   if(event.data[0].eventName === 'upvote') {
     self.upvoteUrl = event.data[0].url;
@@ -115,4 +158,4 @@ self.addEventListener('sync', event => {
     );
   }
 });
-// <!-- Step 4a: Add sync handler -->
+// <!-- Step 5a: Add sync handler -->

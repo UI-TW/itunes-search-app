@@ -14,7 +14,7 @@ const attachEventListeners = () => {
       const collectionId = e.target.querySelector('input[type="hidden"]').value;
       const collection = state.data.results.find(item =>
         item.collectionId === parseInt(collectionId, 10));
-      // <!-- Step 4b: Sync on upvote -->
+      // <!-- Step 5b: Sync on upvote -->
       fetch(apiSettings.upvote, {
         method: 'POST',
         body: JSON.stringify(collection),
@@ -24,7 +24,7 @@ const attachEventListeners = () => {
         })
       })
         .then(res => res.json());
-      // <!-- Step 4b: Sync on upvote -->
+      // <!-- Step 5b: Sync on upvote -->
     }
   });
 };
