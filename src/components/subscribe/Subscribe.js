@@ -15,8 +15,8 @@ class Subscribe {
       return;
     }
 
-    // <!-- Step 3c: Add subscribe action -->
-    // <!-- Step 3c: Add subscribe action -->
+    // <!-- Step 4b: Add subscribe action -->
+    // <!-- Step 4b: Add subscribe action -->
   }
 
   attachEventListeners() {

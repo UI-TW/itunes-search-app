@@ -5,5 +5,5 @@ import {setVapidKey} from './utils/storageUtils';
 
 new App().render();
 
-// <!-- Step 3a: Fetch server identification (VAPID) key -->
-// <!-- Step 3a: Fetch server identification (VAPID) key -->
+// <!-- Step 4a: Fetch server identification (VAPID) key -->
+// <!-- Step 4a: Fetch server identification (VAPID) key -->

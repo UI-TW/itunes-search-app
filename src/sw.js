@@ -14,8 +14,51 @@ self.addEventListener('activate', event => {
 });
 // <!-- Step 1b: Add service worker lifecycle events -->
 
-// <!-- Step 3b: Add push event handler to show notification with configurable options -->
-// <!-- Step 3b: Add push event handler to show notification with configurable options -->
+// <!-- Step 3a: Caching assets from cdn -->
+workboxSW.router.registerRoute(/.*(?:googleapis|gstatic)\.com.*$/,
+  workboxSW.strategies.cacheFirst({
+    cacheName: 'googleapis',
+    cacheExpiration: {
+      maxEntries: 30
+    },
+    cacheableResponse: {statuses: [0, 200]}
+  })
+);
+workboxSW.router.registerRoute(/.*(?:cdnjs)(?:\.cloudflare)\.com*/,
+  workboxSW.strategies.cacheFirst({
+    cacheName: 'cdnjs',
+    cacheExpiration: {
+      maxEntries: 30
+    },
+    cacheableResponse: {statuses: [0, 200]}
+  })
+);
+// <!-- Step 3a: Caching assets from cdn -->
 
-// <!-- Step 3c: Add notification click action -->
-// <!-- Step 3c: Add notification click action -->
+// <!-- Step 3b: Caching api responses -->
+workboxSW.router.registerRoute(/.*\/api\/search*/,
+  workboxSW.strategies.cacheFirst({
+    cacheName: 'user',
+    cacheExpiration: {
+      maxEntries: 30
+    },
+    cacheableResponse: {statuses: [0, 200]}
+  })
+);
+
+workboxSW.router.registerRoute(/.*\/api\/upvote*/,
+  workboxSW.strategies.networkFirst({
+    cacheName: 'user',
+    cacheExpiration: {
+      maxEntries: 30
+    },
+    cacheableResponse: {statuses: [0, 200]}
+  })
+);
+// <!-- Step 3b: Caching api responses -->
+
+// <!-- Step 4c: Add push event handler to show notification with configurable options -->
+// <!-- Step 4c: Add push event handler to show notification with configurable options -->
+
+// <!-- Step 4d: Add notification click action -->
+// <!-- Step 4d: Add notification click action -->

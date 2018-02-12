@@ -15,7 +15,7 @@ class Subscribe {
       return;
     }
 
-    // <!-- Step 3c: Add subscribe action -->
+    // <!-- Step 4b: Add subscribe action -->
     navigator.serviceWorker.ready.then(function(reg) {
       const vapidKey = getVapidKey();
       reg.pushManager.subscribe({
@@ -49,7 +49,7 @@ class Subscribe {
           }
         });
     });
-    // <!-- Step 3c: Add subscribe action -->
+    // <!-- Step 4b: Add subscribe action -->
   }
 
   attachEventListeners() {
