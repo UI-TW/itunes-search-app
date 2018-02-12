@@ -159,20 +159,3 @@ workboxSW.router.registerRoute(/.*\/api\/upvote*/,
   })
 );
 // <!-- Step 5b: Caching api responses -->
-
-// <!-- Step 6b: Add to home screen event -->
-self.addEventListener('beforeinstallprompt', function(e) {
-  console.log('%c beforeinstallprompt Event fired', 'color: #ff00ff', e.platforms);
-  e.userChoice.then(function(choiceResult) {
-
-    console.log(choiceResult.outcome);
-
-    if(choiceResult.outcome == 'dismissed') {
-      console.log('%c User cancelled home screen install', 'color: #FF5722');
-    }
-    else {
-      console.log('%c User added to home screen', 'color: #00ff00');
-    }
-  });
-});
-// <!-- Step 6b: Add to home screen event -->
