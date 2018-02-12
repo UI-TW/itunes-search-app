@@ -14,8 +14,8 @@ self.addEventListener('activate', event => {
 });
 // <!-- Step 1b: Add service worker lifecycle events -->
 
-// <!-- Step 3d: Add push event handler to show notification with configurable options -->
-// <!-- Step 3d: Add push event handler to show notification with configurable options -->
+// <!-- Step 3b: Add push event handler to show notification with configurable options -->
+// <!-- Step 3b: Add push event handler to show notification with configurable options -->
 
-// <!-- Step 3d: Add notification click action -->
-// <!-- Step 3d: Add notification click action -->
+// <!-- Step 3c: Add notification click action -->
+// <!-- Step 3c: Add notification click action -->
