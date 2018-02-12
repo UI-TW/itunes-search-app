@@ -5,7 +5,7 @@ import {setVapidKey} from './utils/storageUtils';
 
 new App().render();
 
-// <!-- Step 3a: Fetch server identification (VAPID) key -->
+// <!-- Step 4a: Fetch server identification (VAPID) key -->
 const getVapidKey = async () => {
   const resp = await fetch(apiSettings.getVapidKey);
   const json = await resp.json();
@@ -13,4 +13,4 @@ const getVapidKey = async () => {
 };
 
 getVapidKey();
-// <!-- Step 3a: Fetch server identification (VAPID) key -->
+// <!-- Step 4a: Fetch server identification (VAPID) key -->
