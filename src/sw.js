@@ -14,7 +14,7 @@ self.addEventListener('activate', event => {
 });
 // <!-- Step 1b: Add service worker lifecycle events -->
 
-// <!-- Step 3d: Add push event handler to show notification with configurable options -->
+// <!-- Step 3b: Add push event handler to show notification with configurable options -->
 self.addEventListener('push', function(event) {
   let body = '';
 
@@ -53,9 +53,9 @@ self.addEventListener('push', function(event) {
     self.registration.showNotification('Music Finder', options)
   );
 });
-// <!-- Step 3d: Add push event handler to show notification with configurable options -->
+// <!-- Step 3b: Add push event handler to show notification with configurable options -->
 
-// <!-- Step 3d: Add notification click action -->
+// <!-- Step 3c: Add notification click action -->
 self.addEventListener('notificationclick', function(event) {
 
   //Listen to custom action buttons in push notification
@@ -95,6 +95,7 @@ self.addEventListener('notificationclick', function(event) {
   );
 
 });
+// <!-- Step 3c: Add notification click action -->
 
 // <!-- Step 4a: Add sync handler -->
 

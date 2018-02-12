@@ -9,9 +9,7 @@ class App {
     let appContainer = document.querySelector('#itunes-search');
     appContainer.innerHTML = appTemplate();
     new Router();
-    // <!-- Step 3a: Add subscribe icon to app -->
     new Subscribe();
-    // <!-- Step 3a: Add subscribe icon to app -->
   }
 }
 
