@@ -74,14 +74,21 @@
     color: var(--default-primary-color);
 }
 
-@media only screen and (min-width: 640px) {
+@media only screen and (max-width: 550px) {
+  .list-wrapper {
+    grid-template-columns: repeat(1, 98vw);
+    grid-gap: 2%;
+  }
+}
+
+@media only screen and (min-width: 700px) {
     .list-wrapper {
         grid-template-columns: repeat(2, 49vw);
         grid-gap: 2%;
     }
 }
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 850px) {
     .list-wrapper {
         grid-template-columns: repeat(3, 31vw);
         padding: 20px;
