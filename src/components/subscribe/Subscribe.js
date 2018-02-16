@@ -1,7 +1,7 @@
 import './Subscribe.css';
 import subscribeTemplate from './subscribe.tpl.html';
 import apiSettings from '../../urlConfig';
-import {urlB64ToUint8Array} from '../../utils/storageUtils';
+import urlB64ToUint8Array from 'urlb64touint8array';
 
 // <!-- Step 4a: serverKey -->
 const appServerKey = '<Your server public key>';
