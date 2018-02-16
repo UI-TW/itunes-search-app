@@ -57,8 +57,12 @@ workboxSW.router.registerRoute(/.*\/api\/upvote*/,
 );
 // <!-- Step 3b: Caching api responses -->
 
-// <!-- Step 4c: Add push event handler to show notification with configurable options -->
-// <!-- Step 4c: Add push event handler to show notification with configurable options -->
+// <!-- Step 4d: Add push event handler to show notification with configurable options -->
+self.addEventListener('push', function(e) {
+  var title = e.data.text();
+  e.waitUntil(
+    self.registration.showNotification(title)
+  );
+});
+// <!-- Step 4d: Add push event handler to show notification with configurable options -->
 
-// <!-- Step 4d: Add notification click action -->
-// <!-- Step 4d: Add notification click action -->
