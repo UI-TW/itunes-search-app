@@ -53,7 +53,7 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "handlebars": "^4.0.11",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "urlb64touint8array": "^1.0.3",
     "workbox-sw": "^2.1.2"
   },
